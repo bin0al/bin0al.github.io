@@ -112,11 +112,24 @@
 	  
 	  //Set up the functionality to grab coordinates on right click. For dev, comment out when done
 	  var userInputLocations = [];
+	  var lastUserLocation = null;
 	  
 	  function mapClickLocations(e) {
 		userInputLocations.push(e.latlng);
-		marker = new L.marker([e.latlng.lng, e.latlng.lat]).addTo(map);
+		userInputLine(e.latlng);
 		locationsToConsole(userInputLocations);
+	  }
+
+	  function userInputLine(inCoords) {
+		if (lastUserLocation == null) {console.log("First coord entered; Line skipped")}
+		else {
+			let lineCoords = [inCoords, lastUserLocation];
+			let newLine = new L.Polyline(lineCoords,{
+				color: 'red',
+				weight: 3
+			}).addTo(map);
+		}
+		lastUserLocation = inCoords;
 	  }
 	  
 	  function locationsToConsole(locations) {
