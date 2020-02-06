@@ -99,8 +99,8 @@
       });
 	  superMissilesLayer.addTo(map);
 	  
-	  var baseMaps = {};
-	  var itemLayers = {
+	  var loneLayers = {};
+	  var multiLayers = {
 		"Energy Tanks": energyTanksLayer,
 		"Major Items": majorItemsLayer,
 		"Missiles": missilesLayer,
@@ -108,7 +108,7 @@
 		"Reserve Tanks": reserveTanksLayer,
 		"Super Missiles": superMissilesLayer
 	  }
-	  L.control.layers(baseMaps, itemLayers).addTo(map);
+	  L.control.layers(loneLayers, multiLayers).addTo(map);
 	  
 	  //Set up the functionality to grab coordinates on right click. For dev, comment out when done
 	  var userInputLocations = [];
