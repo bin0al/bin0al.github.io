@@ -110,9 +110,12 @@
 			},
 		});
 		superMissilesLayer.addTo(map);
+
+		var colorStep = 0;
 		vanillaRouteLayer = L.geoJSON(vanillaRoute, {
 			onEachFeature: function (feature, layer) {
-				layer.options.color = feature.properties.color;
+				layer.options.color = "hsl("+colorStep+",100%,50%)";
+				colorStep = colorStep + 70;
 			},
 		});
 
