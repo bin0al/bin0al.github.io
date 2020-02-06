@@ -142,7 +142,7 @@
 	  function locationsToConsole(locations) {
 	  let outString = '';
 		for (i=0; i<=locations.length-1; i++) {
-			outString = outString + '['+locations[i].lng+','+locations[i].lat+']\n';
+			outString = outString + '['+locations[i].lng+','+locations[i].lat+'],\n';
 		}
 		console.log(outString);
 	  }
