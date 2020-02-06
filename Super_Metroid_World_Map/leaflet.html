@@ -10,6 +10,7 @@
 	<script src="GeoJson/powerBombs.js"></script>
 	<script src="GeoJson/reserveTanks.js"></script>
 	<script src="GeoJson/superMissiles.js"></script>
+	<script src="GeoJson/vanillaRoute.js"></script>
     <style>
       html, body, #map { width:100%; height:100%; margin:0; padding:0; z-index: 1; background: #000000; }
     </style>
@@ -98,17 +99,23 @@
 	    },
       });
 	  superMissilesLayer.addTo(map);
+	  vanillaRouteLayer = L.geoJSON(vanillaRoute, {color:'hsla(0,100%,50%,1)'});
 	  
-	  var loneLayers = {};
+	  var emptyLayer = L.polygon([[0,0],[0,0]],{color:'hsla(0,0%,0%,0)'});
+	  var baseLayers = {
+	  };
 	  var multiLayers = {
+		"<b style='font-size:1.5em'>Item Locations</b>": emptyLayer,
 		"Energy Tanks": energyTanksLayer,
 		"Major Items": majorItemsLayer,
 		"Missiles": missilesLayer,
 		"Power Bombs": powerBombsLayer,
 		"Reserve Tanks": reserveTanksLayer,
-		"Super Missiles": superMissilesLayer
+		"Super Missiles": superMissilesLayer,
+		"<b style='font-size:1.5em'>Routes</b>": emptyLayer,
+		"Casual Route": vanillaRouteLayer
 	  }
-	  L.control.layers(loneLayers, multiLayers).addTo(map);
+	  L.control.layers(baseLayers, multiLayers).addTo(map);
 	  
 	  //Set up the functionality to grab coordinates on right click. For dev, comment out when done
 	  var userInputLocations = [];
