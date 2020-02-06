@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Super Metroid World Map</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js" type="text/javascript"></script>
+
+<head>
+	<title>Super Metroid World Map</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js" type="text/javascript"></script>
 	<script src="GeoJson/energyTanks.js"></script>
 	<script src="GeoJson/majorItems.js"></script>
 	<script src="GeoJson/missiles.js"></script>
@@ -11,143 +12,159 @@
 	<script src="GeoJson/reserveTanks.js"></script>
 	<script src="GeoJson/superMissiles.js"></script>
 	<script src="GeoJson/vanillaRoute.js"></script>
-    <style>
-      html, body, #map { width:100%; height:100%; margin:0; padding:0; z-index: 1; background: #000000; }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script type="text/javascript">
-	
-	//Instantiate the map with all needed parameters
-      var mapExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
-      var mapMinZoom = 3;
-      var mapMaxZoom = 8;
-      var mapMaxResolution = 0.50000000;
-      var mapMinResolution = Math.pow(2, mapMaxZoom) * mapMaxResolution;
-      var tileExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
-      var crs = L.CRS.Simple;
-      crs.transformation = new L.Transformation(1, -tileExtent[0], -1, tileExtent[3]);
-      crs.scale = function(zoom) {
-        return Math.pow(2, zoom) / mapMinResolution;
-      };
-      crs.zoom = function(scale) {
-        return Math.log(scale * mapMinResolution) / Math.LN2;
-      };
-      var layer;
-      var map = new L.Map('map', {
-          maxZoom: mapMaxZoom,
-          minZoom: mapMinZoom,
-          crs: crs
-        });
-        
-        layer = L.tileLayer('Mapfiles/{z}/{x}/{y}.png', {
-          minZoom: mapMinZoom, maxZoom: mapMaxZoom,
-          attribution: '<a href="https://www.snesmaps.com/">Base Map from snesmaps.com</a>',
-          noWrap: true,
-          tms: false
-        }).addTo(map);
-      map.fitBounds([
-        crs.unproject(L.point(mapExtent[2], mapExtent[3])),
-        crs.unproject(L.point(mapExtent[0], mapExtent[1]))
-      ]);
-	  
-	  map.setView([-1109.5,6525],8);
-	  
-	  //Add our item location layers
-	  function createIcon(iconName) {
-		return L.icon({
-			iconUrl: 'Images/'+iconName+'.png',
-			iconSize: [32,32],
-			iconAnchor: [16,16]
-		});
-	  }
-	
-	  energyTanksLayer = L.geoJSON(energyTanks, {
-		onEachFeature: function (feature, layer) {
-		  layer.setIcon(createIcon(feature.properties.item));
-	    },
-      });
-	  energyTanksLayer.addTo(map);
-	  majorItemsLayer = L.geoJSON(majorItems, {
-		onEachFeature: function (feature, layer) {
-		  layer.setIcon(createIcon(feature.properties.item));
-	    },
-      });
-	  majorItemsLayer.addTo(map);
-	  missilesLayer = L.geoJSON(missiles, {
-		onEachFeature: function (feature, layer) {
-		  layer.setIcon(createIcon(feature.properties.item));
-	    },
-      });
-	  missilesLayer.addTo(map);
-	  powerBombsLayer = L.geoJSON(powerBombs, {
-		onEachFeature: function (feature, layer) {
-		  layer.setIcon(createIcon(feature.properties.item));
-	    },
-      });
-	  powerBombsLayer.addTo(map);
-	  reserveTanksLayer = L.geoJSON(reserveTanks, {
-		onEachFeature: function (feature, layer) {
-		  layer.setIcon(createIcon(feature.properties.item));
-	    },
-      });
-	  reserveTanksLayer.addTo(map);
-	  superMissilesLayer = L.geoJSON(superMissiles, {
-		onEachFeature: function (feature, layer) {
-		  layer.setIcon(createIcon(feature.properties.item));
-	    },
-      });
-	  superMissilesLayer.addTo(map);
-	  vanillaRouteLayer = L.geoJSON(vanillaRoute, {color:'hsla(0,100%,50%,1)'});
-	  
-	  var emptyLayer = L.polygon([[0,0],[0,0]],{color:'hsla(0,0%,0%,0)'});
-	  var baseLayers = {
-	  };
-	  var multiLayers = {
-		"<b style='font-size:1.5em'>Item Locations</b>": emptyLayer,
-		"Energy Tanks": energyTanksLayer,
-		"Major Items": majorItemsLayer,
-		"Missiles": missilesLayer,
-		"Power Bombs": powerBombsLayer,
-		"Reserve Tanks": reserveTanksLayer,
-		"Super Missiles": superMissilesLayer,
-		"<b style='font-size:1.5em'>Routes</b>": emptyLayer,
-		"Casual Route": vanillaRouteLayer
-	  }
-	  L.control.layers(baseLayers, multiLayers).addTo(map);
-	  
-	  //Set up the functionality to grab coordinates on right click. For dev, comment out when done
-	  var userInputLocations = [];
-	  var lastUserLocation = null;
-	  
-	  function mapClickLocations(e) {
-		userInputLocations.push(e.latlng);
-		userInputLine(e.latlng);
-		locationsToConsole(userInputLocations);
-	  }
+	<style>
+		html,
+		body,
+		#map {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			z-index: 1;
+			background: #000000;
+		}
+	</style>
+</head>
 
-	  function userInputLine(inCoords) {
-		if (lastUserLocation == null) {console.log("First coord entered; Line skipped")}
-		else {
-			let lineCoords = [inCoords, lastUserLocation];
-			let newLine = new L.Polyline(lineCoords,{
-				color: 'red',
-				weight: 3
-			}).addTo(map);
+<body>
+	<div id="map"></div>
+	<script type="text/javascript">
+
+		//Instantiate the map with all needed parameters
+		var mapExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
+		var mapMinZoom = 3;
+		var mapMaxZoom = 8;
+		var mapMaxResolution = 0.50000000;
+		var mapMinResolution = Math.pow(2, mapMaxZoom) * mapMaxResolution;
+		var tileExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
+		var crs = L.CRS.Simple;
+		crs.transformation = new L.Transformation(1, -tileExtent[0], -1, tileExtent[3]);
+		crs.scale = function (zoom) {
+			return Math.pow(2, zoom) / mapMinResolution;
+		};
+		crs.zoom = function (scale) {
+			return Math.log(scale * mapMinResolution) / Math.LN2;
+		};
+		var layer;
+		var map = new L.Map('map', {
+			maxZoom: mapMaxZoom,
+			minZoom: mapMinZoom,
+			crs: crs
+		});
+
+		layer = L.tileLayer('Mapfiles/{z}/{x}/{y}.png', {
+			minZoom: mapMinZoom, maxZoom: mapMaxZoom,
+			attribution: '<a href="https://www.snesmaps.com/">Base Map from snesmaps.com</a>',
+			noWrap: true,
+			tms: false
+		}).addTo(map);
+		map.fitBounds([
+			crs.unproject(L.point(mapExtent[2], mapExtent[3])),
+			crs.unproject(L.point(mapExtent[0], mapExtent[1]))
+		]);
+
+		map.setView([-1109.5, 6525], 8);
+
+		//Add our item location layers
+		function createIcon(iconName) {
+			return L.icon({
+				iconUrl: 'Images/' + iconName + '.png',
+				iconSize: [32, 32],
+				iconAnchor: [16, 16]
+			});
 		}
-		lastUserLocation = inCoords;
-	  }
-	  
-	  function locationsToConsole(locations) {
-	  let outString = '';
-		for (i=0; i<=locations.length-1; i++) {
-			outString = outString + '['+locations[i].lng+','+locations[i].lat+'],\n';
+
+		energyTanksLayer = L.geoJSON(energyTanks, {
+			onEachFeature: function (feature, layer) {
+				layer.setIcon(createIcon(feature.properties.item));
+			},
+		});
+		energyTanksLayer.addTo(map);
+		majorItemsLayer = L.geoJSON(majorItems, {
+			onEachFeature: function (feature, layer) {
+				layer.setIcon(createIcon(feature.properties.item));
+			},
+		});
+		majorItemsLayer.addTo(map);
+		missilesLayer = L.geoJSON(missiles, {
+			onEachFeature: function (feature, layer) {
+				layer.setIcon(createIcon(feature.properties.item));
+			},
+		});
+		missilesLayer.addTo(map);
+		powerBombsLayer = L.geoJSON(powerBombs, {
+			onEachFeature: function (feature, layer) {
+				layer.setIcon(createIcon(feature.properties.item));
+			},
+		});
+		powerBombsLayer.addTo(map);
+		reserveTanksLayer = L.geoJSON(reserveTanks, {
+			onEachFeature: function (feature, layer) {
+				layer.setIcon(createIcon(feature.properties.item));
+			},
+		});
+		reserveTanksLayer.addTo(map);
+		superMissilesLayer = L.geoJSON(superMissiles, {
+			onEachFeature: function (feature, layer) {
+				layer.setIcon(createIcon(feature.properties.item));
+			},
+		});
+		superMissilesLayer.addTo(map);
+		vanillaRouteLayer = L.geoJSON(vanillaRoute, {
+			onEachFeature: function (feature, layer) {
+				layer.options.color = feature.properties.color;
+			},
+		});
+
+		var emptyLayer = L.polygon([[0, 0], [0, 0]], { color: 'hsla(0,0%,0%,0)' });
+		var baseLayers = {
+		};
+		var multiLayers = {
+			"<b style='font-size:1.5em'>Item Locations</b>": emptyLayer,
+			"Energy Tanks": energyTanksLayer,
+			"Major Items": majorItemsLayer,
+			"Missiles": missilesLayer,
+			"Power Bombs": powerBombsLayer,
+			"Reserve Tanks": reserveTanksLayer,
+			"Super Missiles": superMissilesLayer,
+			"<b style='font-size:1.5em'>Routes</b>": emptyLayer,
+			"Casual Route": vanillaRouteLayer
 		}
-		console.log(outString);
-	  }
-	  
-	  map.on({contextmenu: mapClickLocations});
-    </script>
-  </body>
+		L.control.layers(baseLayers, multiLayers).addTo(map);
+
+		//Set up the functionality to grab coordinates on right click. For dev, comment out when done
+		var userInputLocations = [];
+		var lastUserLocation = null;
+
+		function mapClickLocations(e) {
+			//userInputLocations.push(e.latlng);
+			//userInputLine(e.latlng);
+			//locationsToConsole(userInputLocations);
+			alert("[" + e.latlng.lng + "," + e.latlng.lat + "]");
+		}
+
+		function userInputLine(inCoords) {
+			if (lastUserLocation == null) { console.log("First coord entered; Line skipped") }
+			else {
+				let lineCoords = [inCoords, lastUserLocation];
+				let newLine = new L.Polyline(lineCoords, {
+					color: 'red',
+					weight: 3
+				}).addTo(map);
+			}
+			lastUserLocation = inCoords;
+		}
+
+		function locationsToConsole(locations) {
+			let outString = '';
+			for (i = 0; i <= locations.length - 1; i++) {
+				outString = outString + '[' + locations[i].lng + ',' + locations[i].lat + '],\n';
+			}
+			console.log(outString);
+		}
+
+		map.on({ contextmenu: mapClickLocations });
+	</script>
+</body>
+
 </html>
