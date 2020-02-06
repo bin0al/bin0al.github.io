@@ -19,12 +19,12 @@
     <script type="text/javascript">
 	
 	//Instantiate the map with all needed parameters
-      var mapExtent = [0.00000000, -14336.00000000, 16897.00000000, 0.00000000];
+      var mapExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
       var mapMinZoom = 3;
       var mapMaxZoom = 8;
       var mapMaxResolution = 0.50000000;
       var mapMinResolution = Math.pow(2, mapMaxZoom) * mapMaxResolution;
-      var tileExtent = [0.00000000, -14336.00000000, 16897.00000000, 0.00000000];
+      var tileExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
       var crs = L.CRS.Simple;
       crs.transformation = new L.Transformation(1, -tileExtent[0], -1, tileExtent[3]);
       crs.scale = function(zoom) {
