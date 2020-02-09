@@ -11,7 +11,7 @@
 	<script src="GeoJson/powerBombs.js"></script>
 	<script src="GeoJson/reserveTanks.js"></script>
 	<script src="GeoJson/superMissiles.js"></script>
-	<script src="GeoJson/vanillaRoute.js"></script>
+	<script src="GeoJson/PRKDRoute.js"></script>
 	<style>
 		html,
 		body,
@@ -22,6 +22,30 @@
 			padding: 0;
 			z-index: 1;
 			background: #000000;
+		}
+
+		.startMarker {
+			background: #00FF00;
+			border-style: double;
+			text-align: center;
+		}
+
+		.endMarker {
+			background: #FF0000;
+			border-style: double;
+			text-align: center;
+		}
+
+		.techMarker {
+			background: #AAAAAA;
+			border-style: double;
+			text-align: center;
+		}
+
+		.bossMarker {
+			background: #FF7700;
+			border-style: double;
+			text-align: center;
 		}
 	</style>
 </head>
@@ -79,43 +103,44 @@
 				layer.setIcon(createIcon(feature.properties.item));
 			},
 		});
-		energyTanksLayer.addTo(map);
 		majorItemsLayer = L.geoJSON(majorItems, {
 			onEachFeature: function (feature, layer) {
 				layer.setIcon(createIcon(feature.properties.item));
 			},
 		});
-		majorItemsLayer.addTo(map);
 		missilesLayer = L.geoJSON(missiles, {
 			onEachFeature: function (feature, layer) {
 				layer.setIcon(createIcon(feature.properties.item));
 			},
 		});
-		missilesLayer.addTo(map);
 		powerBombsLayer = L.geoJSON(powerBombs, {
 			onEachFeature: function (feature, layer) {
 				layer.setIcon(createIcon(feature.properties.item));
 			},
 		});
-		powerBombsLayer.addTo(map);
 		reserveTanksLayer = L.geoJSON(reserveTanks, {
 			onEachFeature: function (feature, layer) {
 				layer.setIcon(createIcon(feature.properties.item));
 			},
 		});
-		reserveTanksLayer.addTo(map);
 		superMissilesLayer = L.geoJSON(superMissiles, {
 			onEachFeature: function (feature, layer) {
 				layer.setIcon(createIcon(feature.properties.item));
 			},
 		});
-		superMissilesLayer.addTo(map);
 
 		var colorStep = 0;
-		vanillaRouteLayer = L.geoJSON(vanillaRoute, {
+		PRKDRouteLayer = L.geoJSON(PRKDRoute, {
 			onEachFeature: function (feature, layer) {
-				layer.options.color = "hsl("+colorStep+",100%,50%)";
-				colorStep = colorStep + 70;
+				if (feature.geometry.type == "LineString") {
+					layer.options.color = "hsl(" + colorStep + ",100%,50%)";
+					colorStep = colorStep + 45;
+				};
+				if (feature.geometry.type == "Point") {
+					layer.setIcon(L.divIcon({ className: feature.properties.className, iconSize: 20, html: feature.properties.html }));
+					layer.bindPopup(feature.properties.popupText);
+				}
+				console.log(feature);
 			},
 		});
 
@@ -131,7 +156,7 @@
 			"Reserve Tanks": reserveTanksLayer,
 			"Super Missiles": superMissilesLayer,
 			"<b style='font-size:1.5em'>Routes</b>": emptyLayer,
-			"Casual Route": vanillaRouteLayer
+			"Any% PRKD Route": PRKDRouteLayer
 		}
 		L.control.layers(baseLayers, multiLayers).addTo(map);
 
