@@ -724,7 +724,7 @@ var PRKDRoute = {
         "markerName": "Lava Dive",
         "className": "techMarker",
         "html": "<b>?</b>",
-        "popupText": "Any <a href='https://wiki.supermetroid.run/Lava_Dive_Room'>Lava Dive</a> method is required to get past this room. Lava Spark is commonly the easiest no-gravity method."
+        "popupText": "Any <a href='https://wiki.supermetroid.run/Lava_Dive_Room'>Lava Dive</a> method is required to get past this room. Lava Spark is commonly the easiest no-space jump method."
       },
       "geometry": {
         "type": "Point",
