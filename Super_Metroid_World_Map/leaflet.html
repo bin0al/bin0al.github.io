@@ -53,6 +53,25 @@
 <body>
 	<div id="map"></div>
 	<script type="text/javascript">
+		//Grab arguments from URL for map starting position
+		function mapDefaultViewFromUrl () {
+			let queryString = window.location.search;
+			let urlParams = new URLSearchParams(queryString);
+			console.log(queryString);
+			let xCoord = 6525;
+			let yCoord = -1109;
+			let zCoord = 8;
+			if (urlParams.has('x')) {xCoord = urlParams.get('x')};
+			if (urlParams.has('y')) {yCoord = urlParams.get('y')};
+			if (urlParams.has('z')) {zCoord = urlParams.get('z')};
+			var resultObject = {
+				'x': xCoord,
+				'y': yCoord,
+				'z': zCoord
+			};
+			console.log(resultObject);
+			return resultObject;
+		}
 
 		//Instantiate the map with all needed parameters
 		var mapExtent = [0.00000000, -14336.00000000, 16896.00000000, 0.00000000];
@@ -87,7 +106,9 @@
 			crs.unproject(L.point(mapExtent[0], mapExtent[1]))
 		]);
 
-		map.setView([-1109.5, 6525], 8);
+		//map.setView([-1109, 6525], 8);
+		var viewObject = mapDefaultViewFromUrl();
+		map.setView([viewObject.y, viewObject.x], viewObject.z);
 
 		//Add our item location layers
 		function createIcon(iconName) {
