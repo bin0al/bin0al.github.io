@@ -166,10 +166,40 @@
 			},
 		});
 
+		function areaColorGet(area) {
+			let colorString = "hsl(308,67%,51%)"
+			switch (area) {
+				case "Crateria":
+				colorString = "hsl(22,49%,31%)";
+				break;
+				
+				case "Wrecked Ship":
+				colorString = "hsl(197,7%,33%)";
+				break;
+				
+				case "Brinstar":
+				colorString = "hsl(97,94%,24%)";
+				break;
+				
+				case "Maridia":
+				colorString = "hsl(208,62%,44%)";
+				break;
+				
+				case "Norfair":
+				colorString = "hsl(0,49%,34%)";
+				break;
+				
+				case "Tourian":
+				colorString = "hsl(306,43%,38%)";
+				break;
+			}
+			return colorString;
+		}
+
 		roomsLayer = L.geoJSON(rooms, {
 			onEachFeature: function (feature, layer) {
 				layer.options.color = "hsl(0,100%,100%)";
-				layer.options.fillColor = "hsl(308,67%,51%)";
+				layer.options.fillColor = areaColorGet(feature.properties.area);
 				layer.options.fillOpacity = ".75";
 				layer.bindPopup(
 					"<a href='"
@@ -211,7 +241,7 @@
 			//userInputLocations.push(e.latlng);
 			//userInputLine(e.latlng);
 			//locationsToConsole(userInputLocations);
-			alert("[" + e.latlng.lng + "," + e.latlng.lat + "]");
+			alert("[" + (e.latlng.lng - (e.latlng.lng%256)) + "," + (e.latlng.lat - (e.latlng.lat%256)) + "]");
 		}
 
 		function userInputLine(inCoords) {
