@@ -12,6 +12,7 @@
 	<script src="GeoJson/reserveTanks.js"></script>
 	<script src="GeoJson/superMissiles.js"></script>
 	<script src="GeoJson/PRKDRoute.js"></script>
+	<script src="GeoJson/rooms.js"></script>
 	<style>
 		html,
 		body,
@@ -165,6 +166,25 @@
 			},
 		});
 
+		roomsLayer = L.geoJSON(rooms, {
+			onEachFeature: function (feature, layer) {
+				layer.options.color = "hsl(0,100%,100%)";
+				layer.options.fillColor = "hsl(308,67%,51%)";
+				layer.options.fillOpacity = ".75";
+				layer.bindPopup(
+					"<a href='"
+					+
+					feature.properties.link
+					+
+					"'>"
+					+
+					feature.properties.name
+					+
+					"</a>"
+					);
+			},
+		});
+
 		var emptyLayer = L.polygon([[0, 0], [0, 0]], { color: 'hsla(0,0%,0%,0)' });
 		var baseLayers = {
 		};
@@ -177,7 +197,9 @@
 			"Reserve Tanks": reserveTanksLayer,
 			"Super Missiles": superMissilesLayer,
 			"<b style='font-size:1.5em'>Routes</b>": emptyLayer,
-			"Any% PRKD Route": PRKDRouteLayer
+			"Any% PRKD Route": PRKDRouteLayer,
+			"<b style='font-size:1.5em'>Misc</b>": emptyLayer,
+			"Rooms": roomsLayer
 		}
 		L.control.layers(baseLayers, multiLayers).addTo(map);
 
