@@ -2,6 +2,16 @@
 <html>
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158614581-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-158614581-1');
+	</script>
+
 	<title>Super Metroid World Map</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js" type="text/javascript"></script>
@@ -55,16 +65,16 @@
 	<div id="map"></div>
 	<script type="text/javascript">
 		//Grab arguments from URL for map starting position
-		function mapDefaultViewFromUrl () {
+		function mapDefaultViewFromUrl() {
 			let queryString = window.location.search;
 			let urlParams = new URLSearchParams(queryString);
 			console.log(queryString);
 			let xCoord = 6525;
 			let yCoord = -1109;
 			let zCoord = 8;
-			if (urlParams.has('x')) {xCoord = urlParams.get('x')};
-			if (urlParams.has('y')) {yCoord = urlParams.get('y')};
-			if (urlParams.has('z')) {zCoord = urlParams.get('z')};
+			if (urlParams.has('x')) { xCoord = urlParams.get('x') };
+			if (urlParams.has('y')) { yCoord = urlParams.get('y') };
+			if (urlParams.has('z')) { zCoord = urlParams.get('z') };
 			var resultObject = {
 				'x': xCoord,
 				'y': yCoord,
@@ -170,28 +180,28 @@
 			let colorString = "hsl(308,67%,51%)"
 			switch (area) {
 				case "Crateria":
-				colorString = "hsl(22,49%,31%)";
-				break;
-				
+					colorString = "hsl(22,49%,31%)";
+					break;
+
 				case "Wrecked Ship":
-				colorString = "hsl(197,7%,33%)";
-				break;
-				
+					colorString = "hsl(197,7%,33%)";
+					break;
+
 				case "Brinstar":
-				colorString = "hsl(97,94%,24%)";
-				break;
-				
+					colorString = "hsl(97,94%,24%)";
+					break;
+
 				case "Maridia":
-				colorString = "hsl(208,62%,44%)";
-				break;
-				
+					colorString = "hsl(208,62%,44%)";
+					break;
+
 				case "Norfair":
-				colorString = "hsl(0,49%,34%)";
-				break;
-				
+					colorString = "hsl(0,49%,34%)";
+					break;
+
 				case "Tourian":
-				colorString = "hsl(306,43%,38%)";
-				break;
+					colorString = "hsl(306,43%,38%)";
+					break;
 			}
 			return colorString;
 		}
@@ -211,7 +221,7 @@
 					feature.properties.name
 					+
 					"</a>"
-					);
+				);
 			},
 		});
 		roomsLayer.addTo(map);
@@ -242,7 +252,7 @@
 			//userInputLocations.push(e.latlng);
 			//userInputLine(e.latlng);
 			//locationsToConsole(userInputLocations);
-			alert("[" + (e.latlng.lng - (e.latlng.lng%256)) + "," + (e.latlng.lat - (e.latlng.lat%256)) + "]");
+			alert("[" + (e.latlng.lng - (e.latlng.lng % 256)) + "," + (e.latlng.lat - (e.latlng.lat % 256)) + "]");
 		}
 
 		function userInputLine(inCoords) {
