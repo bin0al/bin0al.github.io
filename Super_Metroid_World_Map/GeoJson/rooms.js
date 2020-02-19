@@ -1940,6 +1940,244 @@ var rooms = {
       }
     },
 
+    //-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-Norfair-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Business Center",
+        "link": "https://wiki.supermetroid.run/Business_Center",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9216,-10240],
+          [9216,-11520],
+          [9472,-11520],
+          [9472,-10240]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norfair Map Room",
+        "link": "https://wiki.supermetroid.run/Norfair_Map_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8960,-10752],
+          [8960,-11008],
+          [9216,-11008],
+          [9216,-10752]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hi Jump Energy Tank Room",
+        "link": "https://wiki.supermetroid.run/Hi_Jump_Energy_Tank_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8704,-11008],
+          [8704,-11520],
+          [8960,-11520],
+          [8960,-11264],
+          [9216,-11264],
+          [9216,-11008]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hi Jump Boots Room",
+        "link": "https://wiki.supermetroid.run/Hi_Jump_Boots_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8448,-11264],
+          [8448,-11520],
+          [8704,-11520],
+          [8704,-11264]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cathedral Entrance",
+        "link": "https://wiki.supermetroid.run/Cathedral_Entrance",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9472,-10496],
+          [9472,-11008],
+          [10240,-11008],
+          [10240,-10496]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cathedral",
+        "link": "https://wiki.supermetroid.run/Cathedral",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [10240,-10496],
+          [10240,-11008],
+          [11008,-11008],
+          [11008,-10496]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rising Tide",
+        "link": "https://wiki.supermetroid.run/Rising_Tide",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [11008,-10752],
+          [11008,-11008],
+          [12288,-11008],
+          [12288,-10752]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Frog Speedway",
+        "link": "https://wiki.supermetroid.run/Frog_Speedway",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9728,-11008],
+          [9728,-11264],
+          [11776,-11264],
+          [11776,-11008]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Upper Norfair Farming Room",
+        "link": "https://wiki.supermetroid.run/Upper_Norfair_Farming_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [11776,-11008],
+          [11776,-11520],
+          [12288,-11520],
+          [12288,-11008]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Purple Shaft",
+        "link": "https://wiki.supermetroid.run/Purple_Shaft",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12288,-11264],
+          [12288,-12032],
+          [12544,-12032],
+          [12544,-11264]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Purple Farming Room",
+        "link": "https://wiki.supermetroid.run/Purple_Farming_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12544,-11520],
+          [12544,-11776],
+          [12800,-11776],
+          [12800,-11520]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Frog Savestation",
+        "link": "https://wiki.supermetroid.run/Frog_Savestation",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9472,-11008],
+          [9472,-11264],
+          [9728,-11264],
+          [9728,-11008]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bubble Mountain",
+        "link": "https://wiki.supermetroid.run/Bubble_Mountain",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12288,-10240],
+          [12288,-11264],
+          [12800,-11264],
+          [12800,-10240]
+        ]],
+      }
+    },
+
   ]
 
 };
