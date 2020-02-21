@@ -480,6 +480,29 @@ var rooms = {
           [11264, -1024],
           [11264, -1536],
           [9216, -1536]
+        ],[
+          [9984,-512],
+          [9984,-768],
+          [10496,-768],
+          [10496,-512]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bowling Alley Path",
+        "link": "https://wiki.supermetroid.run/Bowling_Alley_Path",
+        "area": "Crateria",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9984,-512],
+          [9984,-768],
+          [10496,-768],
+          [10496,-512]
         ]],
       }
     },
@@ -2174,6 +2197,670 @@ var rooms = {
           [12288,-11264],
           [12800,-11264],
           [12800,-10240]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Green Bubbles Missile Room",
+        "link": "https://wiki.supermetroid.run/Green_Bubbles_Missile_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [11776,-10240],
+          [11776,-10496],
+          [12288,-10496],
+          [12288,-10240]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norfair Reserve Tank Room",
+        "link": "https://wiki.supermetroid.run/Norfair_Reserve_Tank_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [11264,-10240],
+          [11264,-10496],
+          [11776,-10496],
+          [11776,-10240]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bat Cave",
+        "link": "https://wiki.supermetroid.run/Bat_Cave",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12800,-9984],
+          [12800,-10496],
+          [13056,-10496],
+          [13056,-9984]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Speed Booster Hall",
+        "link": "https://wiki.supermetroid.run/Speed_Booster_Hall",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [13056,-9984],
+          [13056,-10240],
+          [13824,-10240],
+          [13824,-10496],
+          [16128,-10496],
+          [16128,-10240],
+          [14592,-10240],
+          [14592,-9984]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Speed Booster Room",
+        "link": "https://wiki.supermetroid.run/Speed_Booster_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [16128,-10240],
+          [16128,-10496],
+          [16384,-10496],
+          [16384,-10240]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Single Chamber",
+        "link": "https://wiki.supermetroid.run/Single_Chamber",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12800,-10496],
+          [12800,-11520],
+          [13056,-11520],
+          [13056,-10752],
+          [14336,-10752],
+          [14336,-10496]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Double Chamber",
+        "link": "https://wiki.supermetroid.run/Double_Chamber",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [13056,-10752],
+          [13056,-11264],
+          [14080,-11264],
+          [14080,-10752]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wave Beam Room",
+        "link": "https://wiki.supermetroid.run/Wave_Beam_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [14080,-10752],
+          [14080,-11008],
+          [14336,-11008],
+          [14336,-10752]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ice Beam Gate Room",
+        "link": "https://wiki.supermetroid.run/Ice_Beam_Gate_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8192,-9984],
+          [8192,-10752],
+          [7424,-10752],
+          [7424,-11008],
+          [8448,-11008],
+          [8448,-10752],
+          [9216,-10752],
+          [9216,-10496],
+          [8448,-10496],
+          [8448,-9984]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ice Beam Acid Room",
+        "link": "https://wiki.supermetroid.run/Ice_Beam_Acid_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7680,-10496],
+          [7680,-10752],
+          [8192,-10752],
+          [8192,-10496]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ice Beam Snake Room",
+        "link": "https://wiki.supermetroid.run/Ice_Beam_Snake_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7424,-9984],
+          [7424,-10752],
+          [7680,-10752],
+          [7680,-10496],
+          [7936,-10496],
+          [7936,-10240],
+          [7680,-10240],
+          [7680,-9984]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ice Beam Room",
+        "link": "https://wiki.supermetroid.run/Ice_Beam_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7936,-10240],
+          [7936,-10496],
+          [8192,-10496],
+          [8192,-10240]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ice Beam Tutorial Room",
+        "link": "https://wiki.supermetroid.run/Ice_Beam_Tutorial_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7680,-9984],
+          [7680,-10240],
+          [8192,-10240],
+          [8192,-9984]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crumble Shaft",
+        "link": "https://wiki.supermetroid.run/Crumble_Shaft",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7168,-10752],
+          [7168,-11776],
+          [7424,-11776],
+          [7424,-10752]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Spiky Acid Snakes Tunnel",
+        "link": "https://wiki.supermetroid.run/Spiky_Acid_Snakes_Tunnel",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12032,-12032],
+          [12032,-12288],
+          [13056,-12288],
+          [13056,-12032]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kronic Boost Room",
+        "link": "https://wiki.supermetroid.run/Kronic_Boost_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [13312,-11776],
+          [13312,-12032],
+          [13056,-12032],
+          [13056,-12288],
+          [13312,-12288],
+          [13312,-12544],
+          [13568,-12544],
+          [13568,-11776]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Magdollite Tunnel",
+        "link": "https://wiki.supermetroid.run/Magdollite_Tunnel",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12544,-11776],
+          [12544,-12032],
+          [13312,-12032],
+          [13312,-11776]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lava Dive Room",
+        "link": "https://wiki.supermetroid.run/Lava_Dive_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [12288,-12288],
+          [12288,-12544],
+          [12544,-12544],
+          [12544,-13056],
+          [13056,-13056],
+          [13056,-12800],
+          [13312,-12800],
+          [13312,-12288]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Volcano Room",
+        "link": "https://wiki.supermetroid.run/Volcano_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [14080,-11264],
+          [14080,-11776],
+          [13568,-11776],
+          [13568,-12032],
+          [14336,-12032],
+          [14336,-11264]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Spiky Platforms Tunnel",
+        "link": "https://wiki.supermetroid.run/Spiky_Platforms_Tunnel",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [13056,-11264],
+          [13056,-11520],
+          [14080,-11520],
+          [14080,-11264]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Red Pirate Shaft",
+        "link": "https://wiki.supermetroid.run/Red_Pirate_Shaft",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [11520,-11264],
+          [11520,-12032],
+          [11776,-12032],
+          [11776,-11264]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Acid Snakes Tunnel",
+        "link": "https://wiki.supermetroid.run/Acid_Snakes_Tunnel",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [10752,-12032],
+          [10752,-12288],
+          [11776,-12288],
+          [11776,-12032]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crocomire Speedway",
+        "link": "https://wiki.supermetroid.run/Crocomire_Speedway",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7424,-11520],
+          [7424,-11776],
+          [8192,-11776],
+          [9216,-12288],
+          [10752,-12288],
+          [10752,-11520],
+          [10496,-11520],
+          [10496,-12032],
+          [9216,-12032],
+          [8192,-11520]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crocomire Escape",
+        "link": "https://wiki.supermetroid.run/Crocomire_Escape",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9472,-11264],
+          [9472,-11776],
+          [10496,-11776],
+          [10496,-11264]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crocomire's Room",
+        "link": "https://wiki.supermetroid.run/Crocomire%27s_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9728,-12288],
+          [9728,-12544],
+          [11776,-12544],
+          [11776,-12288]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Post Crocomire Farming Room",
+        "link": "https://wiki.supermetroid.run/Post_Crocomire_Farming_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9216,-12288],
+          [9216,-12800],
+          [9728,-12800],
+          [9728,-12288]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Post Crocomire Power Bomb Room",
+        "link": "https://wiki.supermetroid.run/Post_Crocomire_Power_Bomb_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8960,-12288],
+          [8960,-12544],
+          [9216,-12544],
+          [9216,-12288]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Post Crocomire Shaft",
+        "link": "https://wiki.supermetroid.run/Post_Crocomire_Shaft",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9216,-12800],
+          [9216,-14080],
+          [9472,-14080],
+          [9472,-12800]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Post Crocomire Missile Room",
+        "link": "https://wiki.supermetroid.run/Post_Crocomire_Missile_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9472,-13568],
+          [9472,-13824],
+          [10496,-13824],
+          [10496,-13568]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Post Crocomire Jump Room",
+        "link": "https://wiki.supermetroid.run/Post_Crocomire_Jump_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7680,-13568],
+          [7680,-14336],
+          [9728,-14336],
+          [9728,-14080],
+          [8960,-14080],
+          [8960,-13568]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grapple Beam Room",
+        "link": "https://wiki.supermetroid.run/Grapple_Beam_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7424,-13312],
+          [7424,-14336],
+          [7680,-14336],
+          [7680,-13312]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grapple Tutorial Room 1",
+        "link": "https://wiki.supermetroid.run/Grapple_Tutorial_Room_1",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [7680,-13312],
+          [7680,-13568],
+          [8192,-13568],
+          [8192,-13312]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grapple Tutorial Room 2",
+        "link": "https://wiki.supermetroid.run/Grapple_Tutorial_Room_2",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8192,-12800],
+          [8192,-13568],
+          [8448,-13568],
+          [8448,-12800]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grapple Tutorial Room 3",
+        "link": "https://wiki.supermetroid.run/Grapple_Tutorial_Room_3",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [8448,-12800],
+          [8448,-13312],
+          [9216,-13312],
+          [9216,-12800]
+        ]],
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crocomire Save Room",
+        "link": "https://wiki.supermetroid.run/Crocomire_Save_Room",
+        "area": "Norfair",
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [9728,-12544],
+          [9728,-12800],
+          [9984,-12800],
+          [9984,-12544]
         ]],
       }
     },
