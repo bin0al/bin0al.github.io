@@ -245,7 +245,7 @@
 			"<b style='font-size:1.5em'>Misc</b>": emptyLayer,
 			"Rooms": roomsLayer
 		}
-		L.control.layers(baseLayers, multiLayers).addTo(map);
+		L.control.layers(baseLayers,multiLayers,{collapsed:false}).addTo(map);
 
 		//Set up the functionality to grab coordinates on right click. For dev, comment out when done
 		var userInputLocations = [];
