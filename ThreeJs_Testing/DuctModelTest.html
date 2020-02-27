@@ -45,7 +45,8 @@
             scene.background = new THREE.Color('black');
 
             {
-                const light = new THREE.AmbientLight(0x404040);
+                const light = new THREE.PointLight(0x404040, 1, 100);
+                light.position.set(10,10,10);
                 scene.add(light);
             }
 
