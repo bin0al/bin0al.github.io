@@ -34,35 +34,16 @@
 
         //GLTF Loading Test
         var loader = new THREE.GLTFLoader();
-        // Load a glTF resource
-        loader.load(
-            // resource URL
-            'Models/Duct_EW.gltf',
-            // called when the resource is loaded
-            function (gltf) {
 
-                scene.add(gltf.scene);
+        loader.load('Models/Duct_EW.gltf', function (gltf) {
 
-                gltf.animations; // Array<THREE.AnimationClip>
-                gltf.scene; // THREE.Scene
-                gltf.scenes; // Array<THREE.Scene>
-                gltf.cameras; // Array<THREE.Camera>
-                gltf.asset; // Object
+            scene.add(gltf.scene);
 
-            },
-            // called while loading is progressing
-            function (xhr) {
+        }, undefined, function (error) {
 
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            console.error(error);
 
-            },
-            // called when loading has errors
-            function (error) {
-
-                console.log('An error happened');
-
-            }
-        );
+        });
 
         //Move camera to not be inside of cube
         camera.position.z = 5;
