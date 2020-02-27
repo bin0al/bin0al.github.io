@@ -27,6 +27,7 @@
         "baseColorTexture": {
           "index": 0
         },
+        "metallicFactor": 0,
         "roughnessFactor": 0.1
       },
       "name": "Steel Brushed Stainless"
@@ -36,6 +37,7 @@
         "baseColorTexture": {
           "index": 1
         },
+        "metallicFactor": 0,
         "roughnessFactor": 0.1
       },
       "name": "Metal Aluminum Anodized"

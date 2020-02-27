@@ -42,8 +42,6 @@
             controls.update();
 
             const scene = new THREE.Scene();
-            var replaceMaterial = new THREE.MeshPhongMaterial( { ambient: 0x050505, color: 0x0033ff, specular: 0x555555, shininess: 30 } );
-            scene.overrideMaterial = replaceMaterial;
             scene.background = new THREE.Color('white');
 
             {
@@ -52,7 +50,7 @@
             }
             {
                 const light = new THREE.PointLight(0x404040, 1, 100);
-                light.position.set(0.5, 2, 2);
+                light.position.set(2, 2, 2);
                 scene.add(light);
             }
 
