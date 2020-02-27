@@ -48,11 +48,6 @@
                 const light = new THREE.AmbientLight(0x404040, 2);
                 scene.add(light);
             }
-            {
-                const light = new THREE.PointLight(0x404040, 1, 100);
-                light.position.set(0,0,0);
-                scene.add(light);
-            }
 
             function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
                 const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
@@ -81,9 +76,11 @@
             }
 
             {
+                var material = new THREE.MeshPhongMaterial( { ambient: 0x050505, color: 0x0033ff, specular: 0x555555, shininess: 30 } );
                 const gltfLoader = new THREE.GLTFLoader();
                 gltfLoader.load('Models/Duct_EW_Dpr_1m.gltf', (gltf) => {
                     const root = gltf.scene;
+                    console.log(root);
                     scene.add(root);
 
                     // compute the box that contains all the stuff
