@@ -27,7 +27,6 @@
         "baseColorTexture": {
           "index": 0
         },
-        "metallicFactor": 0.3,
         "roughnessFactor": 0.1
       },
       "name": "Steel Brushed Stainless"
