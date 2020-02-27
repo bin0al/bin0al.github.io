@@ -42,21 +42,12 @@
             controls.update();
 
             const scene = new THREE.Scene();
-            scene.background = new THREE.Color('black');
+            scene.background = new THREE.Color('white');
 
             {
                 const light = new THREE.PointLight(0x404040, 1, 100);
                 light.position.set(10,10,10);
                 scene.add(light);
-            }
-
-            {
-                const color = 0xFFFFFF;
-                const intensity = 1;
-                const light = new THREE.DirectionalLight(color, intensity);
-                light.position.set(5, 10, 2);
-                scene.add(light);
-                scene.add(light.target);
             }
 
             function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
