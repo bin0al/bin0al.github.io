@@ -39,6 +39,9 @@
 
             scene.add(gltf.scene);
             console.log(gltf);
+            var light = new THREE.PointLight(0xff0000, 1, 100);
+            light.position.set(50, 50, 50);
+            scene.add(light);
             renderer.render(scene, camera);
 
         }, undefined, function (error) {
@@ -47,15 +50,8 @@
 
         });
 
-        //Add a light source
-        var light = new THREE.PointLight(0xff0000, 1, 100);
-        light.position.set(50, 50, 50);
-        scene.add(light);
-
-        console.log(scene);
-
         //Move camera to not be inside of cube
-        camera.position.z = 5;
+        camera.position.z = 10;
 
         //Animation/Rendering loop
         /*function animate() {
