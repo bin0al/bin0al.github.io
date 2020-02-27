@@ -42,6 +42,7 @@
             var light = new THREE.PointLight(0xff0000, 1, 100);
             light.position.set(50, 50, 50);
             scene.add(light);
+            camera.position.z = 10;
             renderer.render(scene, camera);
 
         }, undefined, function (error) {
@@ -49,20 +50,6 @@
             console.error(error);
 
         });
-
-        //Move camera to not be inside of cube
-        camera.position.z = 10;
-
-        //Animation/Rendering loop
-        /*function animate() {
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();*/
-
-        renderer.render(scene, camera);
 
     </script>
 </body>
