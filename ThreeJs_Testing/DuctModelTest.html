@@ -43,6 +43,7 @@
             light.position.set(50, 50, 50);
             scene.add(light);
             camera.position.z = 10;
+            render();
             renderer.render(scene, camera);
 
         }, undefined, function (error) {
