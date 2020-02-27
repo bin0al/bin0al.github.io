@@ -46,6 +46,11 @@
 
         });
 
+        //Add a light source
+        var light = new THREE.PointLight(0xff0000, 1, 100);
+        light.position.set(50, 50, 50);
+        scene.add(light);
+
         //Move camera to not be inside of cube
         camera.position.z = 5;
 
