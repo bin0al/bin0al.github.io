@@ -31,7 +31,7 @@
             document.body.appendChild(renderer.domElement);
 
             const fov = 45;
-            const aspect = window.innerWidth/window.innerHeight;  // the canvas default
+            const aspect = window.innerWidth / window.innerHeight;  // the canvas default
             const near = 0.1;
             const far = 100;
             const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
@@ -79,20 +79,24 @@
 
             const modelRef = {
                 "Empty": "https://bin0al.github.io/ThreeJs_Testing/Models/Empty.gltf",
+                "Duct_ESW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_ESW_1m.gltf",
                 "Duct_EW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_1m.gltf",
-                "Duct_EW_Dpr": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_Dpr_1m.gltf"
+                "Duct_EW_Dpr": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_Dpr_1m.gltf",
+                "Duct_NSEW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_NSEW_1m.gltf",
+                "Duct_NEW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_NEW_1m.gltf",
+                "Duct_NS": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_NS_1m.gltf"
             };
 
             const unitLayout = [
-                ["Duct_EW", "Duct_EW_Dpr", "Duct_EW"],
-                ["Duct_EW_Dpr", "Duct_EW", "Duct_EW_Dpr"],
-                ["Duct_EW", "Duct_EW_Dpr", "Duct_EW"]
+                ["Duct_EW_Dpr", "Duct_ESW", "Duct_EW", "Duct_EW", "Duct_EW"],
+                ["Empty", "Duct_NS", "Empty", "Empty", "Empty"],
+                ["Duct_EW_Dpr", "Duct_NEW", "Duct_EW", "Duct_EW", "Duct_EW"]
             ];
 
             function cameraFocusCheck(x, y) {
-                let camY = Math.floor(unitLayout.length/2);
-                let camX = Math.floor(unitLayout[0].length/2);
-                if ((x==camX) && (y==camY)) {return true;} else {return false;}
+                let camY = Math.floor(unitLayout.length / 2);
+                let camX = Math.floor(unitLayout[0].length / 2);
+                if ((x == camX) && (y == camY)) { return true; } else { return false; }
             };
 
             function addSection(xTrans, yTrans, zTrans, modelName, cameraFocus) {
@@ -100,7 +104,7 @@
                     const root = gltf.scene;
                     console.log(root);
                     root.translateX(xTrans);
-                    root.translateY(yTrans);
+                    root.translateY(yTrans*-1);
                     root.translateZ(zTrans);
                     scene.add(root);
                     if (cameraFocusCheck(xTrans, yTrans)) {
@@ -115,9 +119,9 @@
                 });
             };
 
-            for (y=0; y<unitLayout.length; y++) {
-                for (x=0; x<unitLayout[y].length; x++) {
-                    addSection(x, y, 0, unitLayout[x][y]);
+            for (x = 0; x < unitLayout.length; x++) {
+                for (y = 0; y < unitLayout[x].length; y++) {
+                    addSection(x, y, 0, unitLayout[y][x]);
                     console.log("x: " + x + "   y: " + y);
                 }
             };
