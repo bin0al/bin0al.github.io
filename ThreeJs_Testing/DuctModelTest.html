@@ -2,6 +2,16 @@
 <html>
 
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158614581-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158614581-1');
+    </script>
     <meta charset="utf-8">
     <title>My first three.js app</title>
     <style>
@@ -95,14 +105,14 @@
             ];
 
             function cameraFocusCheck(x, y) {
-                if ((x == 1) && (y == 1)) { return true; console.log(x, y)} else {return false;}
+                if ((x == 1) && (y == 1)) { return true; console.log(x, y) } else { return false; }
             };
 
             function addSection(xTrans, yTrans, zTrans, modelName, cameraFocus) {
                 gltfLoader.load(modelRef[modelName], (gltf) => {
                     const root = gltf.scene;
                     root.translateX(xTrans);
-                    root.translateY(yTrans*-1);
+                    root.translateY(yTrans * -1);
                     root.translateZ(zTrans);
                     scene.add(root);
                     if (cameraFocusCheck(xTrans, yTrans)) {
