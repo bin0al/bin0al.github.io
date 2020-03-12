@@ -37,6 +37,8 @@
 
         function main() {
             const renderer = new THREE.WebGLRenderer();
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
@@ -57,6 +59,17 @@
             {
                 const light = new THREE.AmbientLight(0x404040, 2);
                 scene.add(light);
+            }
+            {
+                const light = new THREE.PointLight(0xffffff, 1, 100);
+                light.position.set(1,1,4);
+                light.castShadow = true;
+                scene.add(light);
+
+                light.shadow.mapSize.width = 512;
+                light.shadow.mapSize.height = 512;
+                light.shadow.camera.near = 0.5;
+                light.shadow.camera.far = 500;
             }
 
             function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
@@ -91,7 +104,9 @@
                 "Empty": "https://bin0al.github.io/ThreeJs_Testing/Models/Empty.gltf",
                 "Duct_ESW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_ESW_1m.gltf",
                 "Duct_EW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_1m.gltf",
+                "Duct_EW_Clg": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_Clg_1m.gltf",
                 "Duct_EW_Dpr": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_Dpr_1m.gltf",
+                "Duct_EW_Htg": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_Htg_1m.gltf",
                 "Duct_EW_RFan": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_EW_RFan_1m.gltf",
                 "Duct_NSEW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_NSEW_1m.gltf",
                 "Duct_NEW": "https://bin0al.github.io/ThreeJs_Testing/Models/Duct_NEW_1m.gltf",
@@ -99,9 +114,9 @@
             };
 
             const unitLayout = [
-                ["Duct_EW_Dpr", "Duct_ESW", "Duct_EW", "Duct_EW", "Duct_EW"],
-                ["Empty", "Duct_NS", "Empty", "Empty", "Empty"],
-                ["Duct_EW_Dpr", "Duct_NEW", "Duct_EW", "Duct_EW_RFan", "Duct_EW"]
+                ["Duct_EW_Dpr", "Duct_ESW", "Duct_EW", "Duct_EW", "Duct_EW", "Duct_EW"],
+                ["Empty", "Duct_NS", "Empty", "Empty", "Empty", "Empty"],
+                ["Duct_EW_Dpr", "Duct_NEW", "Duct_EW_Htg", "Duct_EW_Clg", "Duct_RFan", "Duct_EW"]
             ];
 
             function cameraFocusCheck(x, y) {
@@ -114,6 +129,8 @@
                     root.translateX(xTrans);
                     root.translateY(yTrans * -1);
                     root.translateZ(zTrans);
+                    root.castShadow = true;
+                    root.receiveShadow = true;
                     scene.add(root);
                     if (cameraFocusCheck(xTrans, yTrans)) {
                         const box = new THREE.Box3().setFromObject(root);
