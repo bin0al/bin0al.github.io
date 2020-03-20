@@ -56,7 +56,7 @@
       crs: crs
     });
 
-    layer = L.tileLayer('MapTiles/{z}/{x}/{y}.png', {
+    layer = L.tileLayer('https://binoal-mcmap-1.s3.us-east-2.amazonaws.com/MapFiles/{z}/{x}/{y}.png', {
       minZoom: mapMinZoom, maxZoom: mapMaxZoom,
       attribution: '',
       noWrap: true,
