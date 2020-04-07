@@ -28,7 +28,7 @@ var ssuCardData = [
         ],
         'attacks': [
             {
-                'name': 'Dual Steel Fists',
+                'name': '2x Dual Steel Fists',
                 'range': 'C',
                 'infantry': [
                     '3/☠', '3/☠', '3/☠', '3/☠'
@@ -41,7 +41,7 @@ var ssuCardData = [
                 ]
             },
             {
-                'name': 'Radiation Beam',
+                'name': '2x Radiation Beam',
                 'range': '4',
                 'infantry': [
                     '🜹/1', '🜹/1', '🜹/1', '🜹/1'
