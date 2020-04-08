@@ -1,4 +1,4 @@
-var ssuCardData = [
+var mythosCardData = [
     {
         'name1': 'Annihilator',
         'name2': 'Temple Guards MG-Panzer 38(T)',
