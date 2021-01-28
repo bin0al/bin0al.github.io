@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Saira+Stencil+One"/>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Archivo"/>
+		<style>
+			.cardContainer {position:relative; z-index:5}
+			.baseSize {width:387px; height:540px}
+			.baseCardImg {z-index:5; position:relative}
+			.miniaturePicture {z-index:1; position:absolute; top:14px; left:16px; width:359px ; height:213px}
+			.baseText {position:absolute; z-index:10}
+			.baseImage {position:absolute}
+			.cardTitle {font-family:"Saira Stencil One"; font-size:150%; font-weight:100}
+			.cardSubtitle {font-family:"Saira Stencil One"; font-size:120%; font-weight:100}
+			.abilityTitle {font-family:Archivo; font-size:105%; font-weight:bold}
+			.abilityText {font-family:Archivo; font-size:80%; font-weight:bold; padding-bottom:5px}
+			.form {padding:5px 0; vertical-align:center}
+		</style>
+	</head>
+	
+	<body>
+		<div>
+			<input type="file" accept="image/gif, image/jpeg, image/png" id="inImageSubmission">
+			<button onclick="updateImage()">Update Image</button>
+		</div>
+		<div>Custom Image size is natively 359x213, but stretches to fit</div></br></br>
+		<div>
+			<label>Card Title: </label><input type="text" value="Card Title" id="cardTitleInput"></input></br>
+			<label>Card Subtitle: </label><input type="text" value="Card Subtitle" id="cardSubtitleInput"></input></br></br>
+			
+			<label>Ability 1 Title: </label><input type="text" value="Ability 1 Title" id="ability1TitleInput"></input></br>
+			<label>Ability 1 Text: </label><textarea cols="30" rows="4" id="ability1TextInput">Ability 1 Text</textarea></br></br>
+			
+			<label>Ability 2 Title: </label><input type="text" value="Ability 2 Title" id="ability2TitleInput"></input></br>
+			<label>Ability 2 Text: </label><textarea cols="30" rows="4" id="ability2TextInput">Ability 2 Text</textarea></br></br>
+			
+			<label>Ability 3 Title: </label><input type="text" value="Ability 3 Title" id="ability3TitleInput"></input></br>
+			<label>Ability 3 Text: </label><textarea cols="30" rows="4" id="ability3TextInput">Ability 3 Text</textarea></br></br>
+			
+			<label>Ability 4 Title: </label><input type="text" value="Ability 4 Title" id="ability4TitleInput"></input></br>
+			<label>Ability 4 Text: </label><textarea cols="30" rows="4" id="ability4TextInput">Ability 4 Text</textarea></br></br>
+			
+			<button onclick="updateText()">Update Text</button>
+		</div>
+		</br></br>
+		
+		<div id=customCardBase class ="baseSize cardContainer">
+			<img src="#" class="miniaturePicture" id="miniPic"></img>
+			<img src="img/DustVerticalTemplate.png" class="baseSize baseCardImg"></img>
+			<div class="baseText cardTitle" style="top:36%;left:52%" id="cardTitle">Card Title</div>
+			<div class="baseText cardSubtitle" style="top:41%;left:52%" id="cardSubtitle">Card Subtitle</div>
+			<div class="baseText" style="top:50%;left:3%">
+				<div class="abilityTitle" id="ability1Title">Ability 1 Title</div>
+				<div class="abilityText" id="ability1Text">Ability 1 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
+				<div class="abilityTitle" id="ability2Title">Ability 2 Title</div>
+				<div class="abilityText" id="ability2Text">Ability 2 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
+				<div class="abilityTitle" id="ability3Title">Ability 3 Title</div>
+				<div class="abilityText" id="ability3Text">Ability 3 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
+				<div class="abilityTitle" id="ability4Title">Ability 4 Title</div>
+				<div class="abilityText" id="ability4Text">Ability 4 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
+			</div>
+		</div>
+	</body>
+	<script src="javascript.js"></script>
+</html>
