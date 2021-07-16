@@ -1,64 +1,499 @@
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Saira+Stencil+One"/>
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Archivo"/>
-		<style>
-			.cardContainer {position:relative; z-index:5}
-			.baseSize {width:387px; height:540px}
-			.baseCardImg {z-index:5; position:relative}
-			.miniaturePicture {z-index:1; position:absolute; top:14px; left:16px; width:359px ; height:213px}
-			.baseText {position:absolute; z-index:10}
-			.baseImage {position:absolute}
-			.cardTitle {font-family:"Saira Stencil One"; font-size:150%; font-weight:100}
-			.cardSubtitle {font-family:"Saira Stencil One"; font-size:120%; font-weight:100}
-			.abilityTitle {font-family:Archivo; font-size:105%; font-weight:bold}
-			.abilityText {font-family:Archivo; font-size:80%; font-weight:bold; padding-bottom:5px}
-			.form {padding:5px 0; vertical-align:center}
-		</style>
-	</head>
-	
-	<body>
-		<div>
-			<input type="file" accept="image/gif, image/jpeg, image/png" id="inImageSubmission">
-			<button onclick="updateImage()">Update Image</button>
-		</div>
-		<div>Custom Image size is natively 359x213, but stretches to fit</div></br></br>
-		<div>
-			<label>Card Title: </label><input type="text" value="Card Title" id="cardTitleInput"></input></br>
-			<label>Card Subtitle: </label><input type="text" value="Card Subtitle" id="cardSubtitleInput"></input></br></br>
-			
-			<label>Ability 1 Title: </label><input type="text" value="Ability 1 Title" id="ability1TitleInput"></input></br>
-			<label>Ability 1 Text: </label><textarea cols="30" rows="4" id="ability1TextInput">Ability 1 Text</textarea></br></br>
-			
-			<label>Ability 2 Title: </label><input type="text" value="Ability 2 Title" id="ability2TitleInput"></input></br>
-			<label>Ability 2 Text: </label><textarea cols="30" rows="4" id="ability2TextInput">Ability 2 Text</textarea></br></br>
-			
-			<label>Ability 3 Title: </label><input type="text" value="Ability 3 Title" id="ability3TitleInput"></input></br>
-			<label>Ability 3 Text: </label><textarea cols="30" rows="4" id="ability3TextInput">Ability 3 Text</textarea></br></br>
-			
-			<label>Ability 4 Title: </label><input type="text" value="Ability 4 Title" id="ability4TitleInput"></input></br>
-			<label>Ability 4 Text: </label><textarea cols="30" rows="4" id="ability4TextInput">Ability 4 Text</textarea></br></br>
-			
-			<button onclick="updateText()">Update Text</button>
-		</div>
-		</br></br>
-		
-		<div id=customCardBase class ="baseSize cardContainer">
-			<img src="#" class="miniaturePicture" id="miniPic"></img>
-			<img src="img/DustVerticalTemplate.png" class="baseSize baseCardImg"></img>
-			<div class="baseText cardTitle" style="top:36%;left:52%" id="cardTitle">Card Title</div>
-			<div class="baseText cardSubtitle" style="top:41%;left:52%" id="cardSubtitle">Card Subtitle</div>
-			<div class="baseText" style="top:50%;left:3%">
-				<div class="abilityTitle" id="ability1Title">Ability 1 Title</div>
-				<div class="abilityText" id="ability1Text">Ability 1 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
-				<div class="abilityTitle" id="ability2Title">Ability 2 Title</div>
-				<div class="abilityText" id="ability2Text">Ability 2 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
-				<div class="abilityTitle" id="ability3Title">Ability 3 Title</div>
-				<div class="abilityText" id="ability3Text">Ability 3 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
-				<div class="abilityTitle" id="ability4Title">Ability 4 Title</div>
-				<div class="abilityText" id="ability4Text">Ability 4 Text, but longer so that I can have an unrealistically large amount of text in order to ensure that the card has enough space for lots of abilities</div>
-			</div>
-		</div>
-	</body>
+
+<head>
+</head>
+
+<body>
+	<img src="img/combinedBaseInfantry.png" height=0px width=0px id="combinedBaseInfantry">
+	<img src="img/combinedBaseVehicle.png" height=0px width=0px id="combinedBaseVehicle">
+	<img src="img/combinedBaseAircraft.png" height=0px width=0px id="combinedBaseAircraft">
+	<img src="img/imageMask.png" height=0px width=0px id="imageMask">
+	<h2>Unit Basic Info</h2>
+	<label for="imageUpload">Unit Picture(453x317):</label>
+	<input type="file" id="imageUpload">
+	<br />
+	<label for="unitName">Unit Name:</label>
+	<input type="text" name="Unit-Name" id="unitName" value="AVATAR OF CTHULHU">
+	<label for="unitSubname">Unit Subname:</label>
+	<input type="text" name="Unit-Subname" id="unitSubname" value="The Great Dreamer">
+	<br />
+	<label for="accentColor">Card Color:</label>
+	<input type="color" name="Accent-Color" id="accentColor" list="factionColors" value="#6d4399"></input>
+	<datalist id="factionColors">
+		<option value="#6d4399"></option>
+		<option value="#9c503a"></option>
+		<option value="#6c734a"></option>
+		<option value="#8a8c85"></option>
+		<option value="#5d828b"></option>
+	</datalist>
+	<br />
+	<label for="unitBloc">Unit Bloc:</label>
+	<input type="text" name="Unit-Bloc" id="unitBloc" value="Mythos">
+	<label for="unitFaction">Unit Faction:</label>
+	<input type="text" name="Unit-Faction" id="unitFaction" value="N/A">
+	<br />
+	<label for="unitMove">Move:</label>
+	<input type="number" pattern="\d*" name="Unit-Move" id="unitMove" value=2 style="width: 50px">
+	<label for="unitMarch">March:</label>
+	<input type="number" pattern="\d*" name="Unit-March" id="unitMarch" value=5 style="width: 50px">
+	<label for="unitAP">AP:</label>
+	<input type="number" pattern="\d*" name="Unit-AP" id="unitAP" value=29 style="width: 50px">
+	<label for="unitHP">HP:</label>
+	<input type="number" pattern="\d*" name="Unit-HP" id="unitHP" value=15 style="width: 50px">
+	<br />
+	<label for="unitArmorType">Unit Armor Type:</label>
+	<input type="text" name="Unit-Armor-Type" id="unitArmorType" value="Vehicle" list="armorTypes">
+	<label for="unitArmorClass">Unit Armor Value:</label>
+	<input type="number" pattern="\d*" name="Unit-Armor-Class" id="unitArmorClass" value=7 style="width: 50px">
+	<datalist id="armorTypes">
+		<option value="Infantry"></option>
+		<option value="Vehicle"></option>
+		<option value="Aircraft"></option>
+	</datalist>
+	<br />
+	<br />
+	<h2>Abilities</h2>
+	<h3>Ability 1</h3>
+	<label for="ability1Enable">Enable Ability:</label>
+	<input type="checkbox" name="Ability-1-Enable" id="ability1Enable" checked="true">
+	<br />
+	<label for="ability1Name">Name:</label>
+	<input type="text" name="Ability-1-Name" id="ability1Name" value="CHARGE">
+	<br />
+	<label for="ability1Line1">Text Line 1:</label>
+	<input type="text" name="Ability-1-Line-1" id="ability1Line1" style="width: 500px" value="May take a free Attack Action using Close-Combat Weapons">
+	<br />
+	<label for="ability1Line2">Text Line 2:</label>
+	<input type="text" name="Ability-1-Line-2" id="ability1Line2" style="width: 500px" value="after performing a March Move Action.">
+	<br />
+	<label for="ability1Line3">Text Line 3:</label>
+	<input type="text" name="Ability-1-Line-3" id="ability1Line3" style="width: 500px">
+	<br />
+	<label for="ability1Line4">Text Line 4:</label>
+	<input type="text" name="Ability-1-Line-4" id="ability1Line4" style="width: 500px">
+	<br />
+	<br />
+	<h3>Ability 2</h3>
+	<label for="ability2Enable">Enable Ability:</label>
+	<input type="checkbox" name="Ability-2-Enable" id="ability2Enable" checked="true">
+	<br />
+	<label for="ability2Name">Name:</label>
+	<input type="text" name="Ability-2-Name" id="ability2Name" value="DEVOUR">
+	<br />
+	<label for="ability2Line1">Text Line 1:</label>
+	<input type="text" name="Ability-2-Line-1" id="ability2Line1" style="width: 500px" value="Each time this unit inflicts one point of Damage in Close">
+	<br />
+	<label for="ability2Line2">Text Line 2:</label>
+	<input type="text" name="Ability-2-Line-2" id="ability2Line2" style="width: 500px" value="Combat, it heals one Health.">
+	<br />
+	<label for="ability2Line3">Text Line 3:</label>
+	<input type="text" name="Ability-2-Line-3" id="ability2Line3" style="width: 500px">
+	<br />
+	<label for="ability2Line4">Text Line 4:</label>
+	<input type="text" name="Ability-2-Line-4" id="ability2Line4" style="width: 500px">
+	<br />
+	<br />
+	<h3>Ability 3</h3>
+	<label for="ability3Enable">Enable Ability:</label>
+	<input type="checkbox" name="Ability-3-Enable" id="ability3Enable" checked="true">
+	<br />
+	<label for="ability3Name">Name:</label>
+	<input type="text" name="Ability-3-Name" id="ability3Name" value="EXPLODE">
+	<br />
+	<label for="ability3Line1">Text Line 1:</label>
+	<input type="text" name="Ability-3-Line-1" id="ability3Line1" style="width: 500px" value="Never becomes a Wreck. If destroyed, any Unit within Range">
+	<br />
+	<label for="ability3Line2">Text Line 2:</label>
+	<input type="text" name="Ability-3-Line-2" id="ability3Line2" style="width: 500px" value="2 is hit by a ✸/1 Attack. Line of Sight and Cover apply.">
+	<br />
+	<label for="ability3Line3">Text Line 3:</label>
+	<input type="text" name="Ability-3-Line-3" id="ability3Line3" style="width: 500px">
+	<br />
+	<label for="ability3Line4">Text Line 4:</label>
+	<input type="text" name="Ability-3-Line-4" id="ability3Line4" style="width: 500px">
+	<br />
+	<br />
+	<h3>Ability 4</h3>
+	<label for="ability4Enable">Enable Ability:</label>
+	<input type="checkbox" name="Ability-4-Enable" id="ability4Enable" checked="true">
+	<br />
+	<label for="ability4Name">Name:</label>
+	<input type="text" name="Ability-4-Name" id="ability4Name" value="FLYING">
+	<br />
+	<label for="ability4Line1">Text Line 1:</label>
+	<input type="text" name="Ability-4-Line-1" id="ability4Line1" style="width: 500px" value="Ignore terrain. Does not apply to Units Joined.">
+	<br />
+	<label for="ability4Line2">Text Line 2:</label>
+	<input type="text" name="Ability-4-Line-2" id="ability4Line2" style="width: 500px">
+	<br />
+	<label for="ability4Line3">Text Line 3:</label>
+	<input type="text" name="Ability-4-Line-3" id="ability4Line3" style="width: 500px">
+	<br />
+	<label for="ability4Line4">Text Line 4:</label>
+	<input type="text" name="Ability-4-Line-4" id="ability4Line4" style="width: 500px">
+	<br />
+	<br />
+	<h3>Ability 5</h3>
+	<label for="ability5Enable">Enable Ability:</label>
+	<input type="checkbox" name="Ability-5-Enable" id="ability5Enable" checked="true">
+	<br />
+	<label for="ability5Name">Name:</label>
+	<input type="text" name="Ability-5-Name" id="ability5Name" value="MYTHOS CREATURE">
+	<br />
+	<label for="ability5Line1">Text Line 1:</label>
+	<input type="text" name="Ability-5-Line-1" id="ability5Line1" style="width: 500px" value="Immune to Suppression and Critical Hits.">
+	<br />
+	<label for="ability5Line2">Text Line 2:</label>
+	<input type="text" name="Ability-5-Line-2" id="ability5Line2" style="width: 500px">
+	<br />
+	<label for="ability5Line3">Text Line 3:</label>
+	<input type="text" name="Ability-5-Line-3" id="ability5Line3" style="width: 500px">
+	<br />
+	<label for="ability5Line4">Text Line 4:</label>
+	<input type="text" name="Ability-5-Line-4" id="ability5Line4" style="width: 500px">
+	<br />
+	<br />
+	<h3>Ability 6</h3>
+	<label for="ability6Enable">Enable Ability:</label>
+	<input type="checkbox" name="Ability-6-Enable" id="ability6Enable">
+	<br />
+	<label for="ability6Name">Name:</label>
+	<input type="text" name="Ability-6-Name" id="ability6Name">
+	<br />
+	<label for="ability6Line1">Text Line 1:</label>
+	<input type="text" name="Ability-6-Line-1" id="ability6Line1" style="width: 500px">
+	<br />
+	<label for="ability6Line2">Text Line 2:</label>
+	<input type="text" name="Ability-6-Line-2" id="ability6Line2" style="width: 500px">
+	<br />
+	<label for="ability6Line3">Text Line 3:</label>
+	<input type="text" name="Ability-6-Line-3" id="ability6Line3" style="width: 500px">
+	<br />
+	<label for="ability6Line4">Text Line 4:</label>
+	<input type="text" name="Ability-6-Line-4" id="ability6Line4" style="width: 500px">
+	<br />
+	<br />
+	<h2>Unit Weapons</h2>
+	<h3>Weapon 1</h3>
+	<label for="weapon1Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-1-Enable" id="weapon1Enable" checked="true">
+	<br />
+	<label for="weapon1Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-1-Count" id="weapon1Count" min="1" style="width: 50px" value="2">
+	<label for="weapon1Name">Name:</label>
+	<input type="text" name="Weapon-1-Name" id="weapon1Name" value="Claws">
+	<label for="weapon1Range">Range:</label>
+	<input type="text" name="Weapon-1-Range" id="weapon1Range" style="width: 50px" value="C">
+	<label for="weapon1Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-1-Ammo" id="weapon1Ammo" style="width: 50px" value="0">
+	<br />
+	<label for="weapon1I1">I1:</label>
+	<input type="text" name="Weapon-1-I1" id="weapon1I1" style="width: 50px" value="6/1">
+	<label for="weapon1I2">I2:</label>
+	<input type="text" name="Weapon-1-I2" id="weapon1I2" style="width: 50px" value="6/1">
+	<label for="weapon1I3">I3:</label>
+	<input type="text" name="Weapon-1-I3" id="weapon1I3" style="width: 50px" value="6/1">
+	<label for="weapon1I4">I4:</label>
+	<input type="text" name="Weapon-1-I4" id="weapon1I4" style="width: 50px" value="6/1">
+	<br />
+	<label for="weapon1V1">V1:</label>
+	<input type="text" name="Weapon-1-V1" id="weapon1V1" style="width: 50px" value="2/🕱">
+	<label for="weapon1V2">V2:</label>
+	<input type="text" name="Weapon-1-V2" id="weapon1V2" style="width: 50px" value="2/🕱">
+	<label for="weapon1V3">V3:</label>
+	<input type="text" name="Weapon-1-V3" id="weapon1V3" style="width: 50px" value="2/5">
+	<label for="weapon1V4">V4:</label>
+	<input type="text" name="Weapon-1-V4" id="weapon1V4" style="width: 50px" value="2/4">
+	<label for="weapon1V5">V5:</label>
+	<input type="text" name="Weapon-1-V5" id="weapon1V5" style="width: 50px" value="2/4">
+	<label for="weapon1V6">V6:</label>
+	<input type="text" name="Weapon-1-V6" id="weapon1V6" style="width: 50px" value="2/3">
+	<label for="weapon1V7">V7:</label>
+	<input type="text" name="Weapon-1-V7" id="weapon1V7" style="width: 50px" value="2/3">
+	<br />
+	<label for="weapon1A1">A1:</label>
+	<input type="text" name="Weapon-1-A1" id="weapon1A1" style="width: 50px" value="2/4">
+	<label for="weapon1A2">A2:</label>
+	<input type="text" name="Weapon-1-A2" id="weapon1A2" style="width: 50px" value="2/4">
+	<label for="weapon1A3">A3:</label>
+	<input type="text" name="Weapon-1-A3" id="weapon1A3" style="width: 50px" value="2/3">
+	<br />
+	<br />
+	<h3>Weapon 2</h3>
+	<label for="weapon2Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-2-Enable" id="weapon2Enable">
+	<br />
+	<label for="weapon2Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-2-Count" id="weapon2Count" min="1" style="width: 50px">
+	<label for="weapon2Name">Name:</label>
+	<input type="text" name="Weapon-2-Name" id="weapon2Name">
+	<label for="weapon2Range">Range:</label>
+	<input type="text" name="Weapon-2-Range" id="weapon2Range" style="width: 50px">
+	<label for="weapon2Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-2-Ammo" id="weapon2Ammo" style="width: 50px">
+	<br />
+	<label for="weapon2I1">I1:</label>
+	<input type="text" name="Weapon-2-I1" id="weapon2I1" style="width: 50px">
+	<label for="weapon2I2">I2:</label>
+	<input type="text" name="Weapon-2-I2" id="weapon2I2" style="width: 50px">
+	<label for="weapon2I3">I3:</label>
+	<input type="text" name="Weapon-2-I3" id="weapon2I3" style="width: 50px">
+	<label for="weapon2I4">I4:</label>
+	<input type="text" name="Weapon-2-I4" id="weapon2I4" style="width: 50px">
+	<br />
+	<label for="weapon2V1">V1:</label>
+	<input type="text" name="Weapon-2-V1" id="weapon2V1" style="width: 50px">
+	<label for="weapon2V2">V2:</label>
+	<input type="text" name="Weapon-2-V2" id="weapon2V2" style="width: 50px">
+	<label for="weapon2V3">V3:</label>
+	<input type="text" name="Weapon-2-V3" id="weapon2V3" style="width: 50px">
+	<label for="weapon2V4">V4:</label>
+	<input type="text" name="Weapon-2-V4" id="weapon2V4" style="width: 50px">
+	<label for="weapon2V5">V5:</label>
+	<input type="text" name="Weapon-2-V5" id="weapon2V5" style="width: 50px">
+	<label for="weapon2V6">V6:</label>
+	<input type="text" name="Weapon-2-V6" id="weapon2V6" style="width: 50px">
+	<label for="weapon2V7">V7:</label>
+	<input type="text" name="Weapon-2-V7" id="weapon2V7" style="width: 50px">
+	<br />
+	<label for="weapon2A1">A1:</label>
+	<input type="text" name="Weapon-2-A1" id="weapon2A1" style="width: 50px">
+	<label for="weapon2A2">A2:</label>
+	<input type="text" name="Weapon-2-A2" id="weapon2A2" style="width: 50px">
+	<label for="weapon2A3">A3:</label>
+	<input type="text" name="Weapon-2-A3" id="weapon2A3" style="width: 50px">
+	<br />
+	<br />
+	<h3>Weapon 3</h3>
+	<label for="weapon3Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-3-Enable" id="weapon3Enable">
+	<br />
+	<label for="weapon3Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-3-Count" id="weapon3Count" min="1" style="width: 50px">
+	<label for="weapon3Name">Name:</label>
+	<input type="text" name="Weapon-3-Name" id="weapon3Name">
+	<label for="weapon3Range">Range:</label>
+	<input type="text" name="Weapon-3-Range" id="weapon3Range" style="width: 50px">
+	<label for="weapon3Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-3-Ammo" id="weapon3Ammo" style="width: 50px">
+	<br />
+	<label for="weapon3I1">I1:</label>
+	<input type="text" name="Weapon-3-I1" id="weapon3I1" style="width: 50px">
+	<label for="weapon3I2">I2:</label>
+	<input type="text" name="Weapon-3-I2" id="weapon3I2" style="width: 50px">
+	<label for="weapon3I3">I3:</label>
+	<input type="text" name="Weapon-3-I3" id="weapon3I3" style="width: 50px">
+	<label for="weapon3I4">I4:</label>
+	<input type="text" name="Weapon-3-I4" id="weapon3I4" style="width: 50px">
+	<br />
+	<label for="weapon3V1">V1:</label>
+	<input type="text" name="Weapon-3-V1" id="weapon3V1" style="width: 50px">
+	<label for="weapon3V2">V2:</label>
+	<input type="text" name="Weapon-3-V2" id="weapon3V2" style="width: 50px">
+	<label for="weapon3V3">V3:</label>
+	<input type="text" name="Weapon-3-V3" id="weapon3V3" style="width: 50px">
+	<label for="weapon3V4">V4:</label>
+	<input type="text" name="Weapon-3-V4" id="weapon3V4" style="width: 50px">
+	<label for="weapon3V5">V5:</label>
+	<input type="text" name="Weapon-3-V5" id="weapon3V5" style="width: 50px">
+	<label for="weapon3V6">V6:</label>
+	<input type="text" name="Weapon-3-V6" id="weapon3V6" style="width: 50px">
+	<label for="weapon3V7">V7:</label>
+	<input type="text" name="Weapon-3-V7" id="weapon3V7" style="width: 50px">
+	<br />
+	<label for="weapon3A1">A1:</label>
+	<input type="text" name="Weapon-3-A1" id="weapon3A1" style="width: 50px">
+	<label for="weapon3A2">A2:</label>
+	<input type="text" name="Weapon-3-A2" id="weapon3A2" style="width: 50px">
+	<label for="weapon3A3">A3:</label>
+	<input type="text" name="Weapon-3-A3" id="weapon3A3" style="width: 50px">
+	<br />
+	<br />
+	<h3>Weapon 4</h3>
+	<label for="weapon4Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-4-Enable" id="weapon4Enable">
+	<br />
+	<label for="weapon4Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-4-Count" id="weapon4Count" min="1" style="width: 50px">
+	<label for="weapon4Name">Name:</label>
+	<input type="text" name="Weapon-4-Name" id="weapon4Name">
+	<label for="weapon4Range">Range:</label>
+	<input type="text" name="Weapon-4-Range" id="weapon4Range" style="width: 50px">
+	<label for="weapon4Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-4-Ammo" id="weapon4Ammo" style="width: 50px">
+	<br />
+	<label for="weapon4I1">I1:</label>
+	<input type="text" name="Weapon-4-I1" id="weapon4I1" style="width: 50px">
+	<label for="weapon4I2">I2:</label>
+	<input type="text" name="Weapon-4-I2" id="weapon4I2" style="width: 50px">
+	<label for="weapon4I3">I3:</label>
+	<input type="text" name="Weapon-4-I3" id="weapon4I3" style="width: 50px">
+	<label for="weapon4I4">I4:</label>
+	<input type="text" name="Weapon-4-I4" id="weapon4I4" style="width: 50px">
+	<br />
+	<label for="weapon4V1">V1:</label>
+	<input type="text" name="Weapon-4-V1" id="weapon4V1" style="width: 50px">
+	<label for="weapon4V2">V2:</label>
+	<input type="text" name="Weapon-4-V2" id="weapon4V2" style="width: 50px">
+	<label for="weapon4V3">V3:</label>
+	<input type="text" name="Weapon-4-V3" id="weapon4V3" style="width: 50px">
+	<label for="weapon4V4">V4:</label>
+	<input type="text" name="Weapon-4-V4" id="weapon4V4" style="width: 50px">
+	<label for="weapon4V5">V5:</label>
+	<input type="text" name="Weapon-4-V5" id="weapon4V5" style="width: 50px">
+	<label for="weapon4V6">V6:</label>
+	<input type="text" name="Weapon-4-V6" id="weapon4V6" style="width: 50px">
+	<label for="weapon4V7">V7:</label>
+	<input type="text" name="Weapon-4-V7" id="weapon4V7" style="width: 50px">
+	<br />
+	<label for="weapon4A1">A1:</label>
+	<input type="text" name="Weapon-4-A1" id="weapon4A1" style="width: 50px">
+	<label for="weapon4A2">A2:</label>
+	<input type="text" name="Weapon-4-A2" id="weapon4A2" style="width: 50px">
+	<label for="weapon4A3">A3:</label>
+	<input type="text" name="Weapon-4-A3" id="weapon4A3" style="width: 50px">
+	<br />
+	<br />
+	<h3>Weapon 5</h3>
+	<label for="weapon5Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-5-Enable" id="weapon5Enable">
+	<br />
+	<label for="weapon5Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-5-Count" id="weapon5Count" min="1" style="width: 50px">
+	<label for="weapon5Name">Name:</label>
+	<input type="text" name="Weapon-5-Name" id="weapon5Name">
+	<label for="weapon5Range">Range:</label>
+	<input type="text" name="Weapon-5-Range" id="weapon5Range" style="width: 50px">
+	<label for="weapon5Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-5-Ammo" id="weapon5Ammo" style="width: 50px">
+	<br />
+	<label for="weapon5I1">I1:</label>
+	<input type="text" name="Weapon-5-I1" id="weapon5I1" style="width: 50px">
+	<label for="weapon5I2">I2:</label>
+	<input type="text" name="Weapon-5-I2" id="weapon5I2" style="width: 50px">
+	<label for="weapon5I3">I3:</label>
+	<input type="text" name="Weapon-5-I3" id="weapon5I3" style="width: 50px">
+	<label for="weapon5I4">I4:</label>
+	<input type="text" name="Weapon-5-I4" id="weapon5I4" style="width: 50px">
+	<br />
+	<label for="weapon5V1">V1:</label>
+	<input type="text" name="Weapon-5-V1" id="weapon5V1" style="width: 50px">
+	<label for="weapon5V2">V2:</label>
+	<input type="text" name="Weapon-5-V2" id="weapon5V2" style="width: 50px">
+	<label for="weapon5V3">V3:</label>
+	<input type="text" name="Weapon-5-V3" id="weapon5V3" style="width: 50px">
+	<label for="weapon5V4">V4:</label>
+	<input type="text" name="Weapon-5-V4" id="weapon5V4" style="width: 50px">
+	<label for="weapon5V5">V5:</label>
+	<input type="text" name="Weapon-5-V5" id="weapon5V5" style="width: 50px">
+	<label for="weapon5V6">V6:</label>
+	<input type="text" name="Weapon-5-V6" id="weapon5V6" style="width: 50px">
+	<label for="weapon5V7">V7:</label>
+	<input type="text" name="Weapon-5-V7" id="weapon5V7" style="width: 50px">
+	<br />
+	<label for="weapon5A1">A1:</label>
+	<input type="text" name="Weapon-5-A1" id="weapon5A1" style="width: 50px">
+	<label for="weapon5A2">A2:</label>
+	<input type="text" name="Weapon-5-A2" id="weapon5A2" style="width: 50px">
+	<label for="weapon5A3">A3:</label>
+	<input type="text" name="Weapon-5-A3" id="weapon5A3" style="width: 50px">
+	<br />
+	<br />
+	<h3>Weapon 6</h3>
+	<label for="weapon6Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-6-Enable" id="weapon6Enable">
+	<br />
+	<label for="weapon6Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-6-Count" id="weapon6Count" min="1" style="width: 50px">
+	<label for="weapon6Name">Name:</label>
+	<input type="text" name="Weapon-6-Name" id="weapon6Name">
+	<label for="weapon6Range">Range:</label>
+	<input type="text" name="Weapon-6-Range" id="weapon6Range" style="width: 50px">
+	<label for="weapon6Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-6-Ammo" id="weapon6Ammo" style="width: 50px">
+	<br />
+	<label for="weapon6I1">I1:</label>
+	<input type="text" name="Weapon-6-I1" id="weapon6I1" style="width: 50px">
+	<label for="weapon6I2">I2:</label>
+	<input type="text" name="Weapon-6-I2" id="weapon6I2" style="width: 50px">
+	<label for="weapon6I3">I3:</label>
+	<input type="text" name="Weapon-6-I3" id="weapon6I3" style="width: 50px">
+	<label for="weapon6I4">I4:</label>
+	<input type="text" name="Weapon-6-I4" id="weapon6I4" style="width: 50px">
+	<br />
+	<label for="weapon6V1">V1:</label>
+	<input type="text" name="Weapon-6-V1" id="weapon6V1" style="width: 50px">
+	<label for="weapon6V2">V2:</label>
+	<input type="text" name="Weapon-6-V2" id="weapon6V2" style="width: 50px">
+	<label for="weapon6V3">V3:</label>
+	<input type="text" name="Weapon-6-V3" id="weapon6V3" style="width: 50px">
+	<label for="weapon6V4">V4:</label>
+	<input type="text" name="Weapon-6-V4" id="weapon6V4" style="width: 50px">
+	<label for="weapon6V5">V5:</label>
+	<input type="text" name="Weapon-6-V5" id="weapon6V5" style="width: 50px">
+	<label for="weapon6V6">V6:</label>
+	<input type="text" name="Weapon-6-V6" id="weapon6V6" style="width: 50px">
+	<label for="weapon6V7">V7:</label>
+	<input type="text" name="Weapon-6-V7" id="weapon6V7" style="width: 50px">
+	<br />
+	<label for="weapon6A1">A1:</label>
+	<input type="text" name="Weapon-6-A1" id="weapon6A1" style="width: 50px">
+	<label for="weapon6A2">A2:</label>
+	<input type="text" name="Weapon-6-A2" id="weapon6A2" style="width: 50px">
+	<label for="weapon6A3">A3:</label>
+	<input type="text" name="Weapon-6-A3" id="weapon6A3" style="width: 50px">
+	<br />
+	<br />
+	<h3>Weapon 7</h3>
+	<label for="weapon7Enable">Enable Weapon Line:</label>
+	<input type="checkbox" name="Weapon-7-Enable" id="weapon7Enable">
+	<br />
+	<label for="weapon7Count">Count:</label>
+	<input type="number" pattern="\d*" name="Weapon-7-Count" id="weapon7Count" min="1" style="width: 50px">
+	<label for="weapon7Name">Name:</label>
+	<input type="text" name="Weapon-7-Name" id="weapon7Name">
+	<label for="weapon7Range">Range:</label>
+	<input type="text" name="Weapon-7-Range" id="weapon7Range" style="width: 50px">
+	<label for="weapon7Ammo">Ammo:</label>
+	<input type="number" pattern="\d*" name="Weapon-7-Ammo" id="weapon7Ammo" style="width: 50px">
+	<br />
+	<label for="weapon7I1">I1:</label>
+	<input type="text" name="Weapon-7-I1" id="weapon7I1" style="width: 50px">
+	<label for="weapon7I2">I2:</label>
+	<input type="text" name="Weapon-7-I2" id="weapon7I2" style="width: 50px">
+	<label for="weapon7I3">I3:</label>
+	<input type="text" name="Weapon-7-I3" id="weapon7I3" style="width: 50px">
+	<label for="weapon7I4">I4:</label>
+	<input type="text" name="Weapon-7-I4" id="weapon7I4" style="width: 50px">
+	<br />
+	<label for="weapon7V1">V1:</label>
+	<input type="text" name="Weapon-7-V1" id="weapon7V1" style="width: 50px">
+	<label for="weapon7V2">V2:</label>
+	<input type="text" name="Weapon-7-V2" id="weapon7V2" style="width: 50px">
+	<label for="weapon7V3">V3:</label>
+	<input type="text" name="Weapon-7-V3" id="weapon7V3" style="width: 50px">
+	<label for="weapon7V4">V4:</label>
+	<input type="text" name="Weapon-7-V4" id="weapon7V4" style="width: 50px">
+	<label for="weapon7V5">V5:</label>
+	<input type="text" name="Weapon-7-V5" id="weapon7V5" style="width: 50px">
+	<label for="weapon7V6">V6:</label>
+	<input type="text" name="Weapon-7-V6" id="weapon7V6" style="width: 50px">
+	<label for="weapon7V7">V7:</label>
+	<input type="text" name="Weapon-7-V7" id="weapon7V7" style="width: 50px">
+	<br />
+	<label for="weapon7A1">A1:</label>
+	<input type="text" name="Weapon-7-A1" id="weapon7A1" style="width: 50px">
+	<label for="weapon7A2">A2:</label>
+	<input type="text" name="Weapon-7-A2" id="weapon7A2" style="width: 50px">
+	<label for="weapon7A3">A3:</label>
+	<input type="text" name="Weapon-7-A3" id="weapon7A3" style="width: 50px">
+	<br />
+	<br />
+	<button id="generateCard" onclick="generateCard()">Generate Card!</button>
+	<br />
+	<canvas id="cardCanvas" height=1000px width=1000px></canvas>
+	<canvas id="imageCanvas" height=317px width=453px style="visibility:hidden"></canvas>
 	<script src="javascript.js"></script>
+</body>
+
 </html>
