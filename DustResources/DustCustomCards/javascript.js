@@ -161,6 +161,8 @@ document.getElementById('imageUpload').onchange = function (e) {
 
 const canvas = document.getElementById("cardCanvas");
 const ctx = canvas.getContext("2d");
+ctx.font = "bold 40px ImpactCustom";
+ctx.fillText("Loading Font", 0, 0);
 ctx.fillStyle = "black";
 ctx.fillRect(0, 0, 1000, 1000)
 function generateCard() {
@@ -190,22 +192,22 @@ function generateCard() {
 	else {
 		ctx.fillStyle = "black";
 		ctx.textAlign = "center";
-		ctx.font = "bold 40px Impact";
+		ctx.font = "bold 40px ImpactCustom";
 		ctx.fillText(baseCard.stats.hp, 125, 935);
 	}
 	ctx.fillStyle = "black";
 	ctx.textAlign = "center";
-	ctx.font = "bold 40px Impact";
+	ctx.font = "bold 40px ImpactCustom";
 	ctx.fillText(baseCard.stats.ap, 67, 120);
-	ctx.font = "bold 30px Impact";
+	ctx.font = "bold 30px ImpactCustom";
 	ctx.fillText(baseCard.name, 210, 415);
 	ctx.font = "bold condensed 20px Helvetica";
 	ctx.fillText(baseCard.subname, 210, 460);
-	ctx.font = "bold 40px Impact";
+	ctx.font = "bold 40px ImpactCustom";
 	ctx.fillText(baseCard.stats.move, 676, 935);
-	ctx.font = "bold 40px Impact";
+	ctx.font = "bold 40px ImpactCustom";
 	ctx.fillText(baseCard.stats.march, 813, 935);
-	ctx.font = "bold 40px Impact";
+	ctx.font = "bold 40px ImpactCustom";
 	ctx.fillText(baseCard.armor.class, 950, 935);
 	let abilityY = 70;
 	let abilityInc = 20;
@@ -213,7 +215,7 @@ function generateCard() {
 	ctx.textAlign = "left";
 	baseCard.abilities.forEach(element => {
 		abilityY = abilityY + abilityIncLg;
-		ctx.font = "20px Impact";
+		ctx.font = "20px ImpactCustom";
 		ctx.fillText("- " + element.name + " -", 530, abilityY);
 		abilityY = abilityY + abilityInc;
 		element.text.forEach(element => {
