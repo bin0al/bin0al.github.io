@@ -203,7 +203,7 @@ function generateCard() {
 	ctx.fillText(baseCard.stats.ap, 67, 120);
 	ctx.font = "bold 30px ImpactCustom";
 	ctx.fillText(baseCard.name, 210, 415);
-	ctx.font = "bold condensed 20px HelveticaCustom";
+	ctx.font = "bold 20px HelveticaCustom";
 	ctx.fillText(baseCard.subname, 210, 460);
 	ctx.font = "bold 40px ImpactCustom";
 	ctx.fillText(baseCard.stats.move, 676, 935);
@@ -221,7 +221,7 @@ function generateCard() {
 		ctx.fillText("- " + element.name + " -", 530, abilityY);
 		abilityY = abilityY + abilityInc;
 		element.text.forEach(element => {
-			ctx.font = "bold condensed 16px HelveticaCustom";
+			ctx.font = "bold 16px HelveticaCustom";
 			ctx.fillText(element, 530, abilityY);
 			abilityY = abilityY + abilityInc;
 		})
@@ -240,7 +240,7 @@ function generateCard() {
 		}
 		lineCount++;
 		ctx.textAlign = "left";
-		ctx.font = "bold condensed 20px HelveticaCustom";
+		ctx.font = "bold 20px HelveticaCustom";
 		ctx.fillText(element.count + "x " + element.name, 90, weaponHeight);
 		ctx.textAlign = "center";
 		ctx.fillText(element.range, 336, weaponHeight);
