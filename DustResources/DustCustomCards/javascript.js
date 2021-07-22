@@ -131,6 +131,14 @@ function generateJSON() {
 			baseCard.weapons.push(tempWeapon);
 		}
 	};
+	var cardAsString = JSON.stringify(baseCard);
+	cardAsString = cardAsString.replaceAll('[K]', 'ſ');
+	cardAsString = cardAsString.replaceAll('[B]', 'ƀ');
+	cardAsString = cardAsString.replaceAll('[F]', 'Ɓ');
+	cardAsString = cardAsString.replaceAll('[C]', 'Ƃ');
+	cardAsString = cardAsString.replaceAll('[S]', 'ƃ');
+	baseCard = JSON.parse(cardAsString);
+	console.log(cardAsString);
 	console.log(baseCard);
 };
 
