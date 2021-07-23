@@ -1,79 +1,4 @@
-var baseCard = {
-	"accentColor": "rgb(109, 67, 153)",
-	"name": "AVATAR OF CTHULHU",
-	"subname": "The Great Dreamer",
-	"stats": {
-		"move": 2,
-		"march": 4,
-		"ap": 29,
-		"hp": 15
-	},
-	"bloc": "Mythos",
-	"faction": "None",
-	"armor": {
-		"type": "Vehicle",
-		"class": 7
-	},
-	"abilities": [
-		{
-			"name": "CHARGE",
-			"text": [
-				"May take a free Attack Action using Close-Combat Weapons",
-				"after performing a March Move Action."
-			]
-		},
-		{
-			"name": "DEVOUR",
-			"text": [
-				"Each time this unit inflicts one point of Damage in Close",
-				"Combat, it heals one Health."
-			]
-		},
-		{
-			"name": "EXPLODE",
-			"text": [
-				"Never becomes a Wreck. If destroyed, any Unit within Range",
-				"2 is hit by a \u{2738}/1 Attack. Line of Sight and Cover apply."
-			]
-		},
-		{
-			"name": "FLYING",
-			"text": [
-				"Ignore terrain. Does not apply to Units Joined."
-			]
-		},
-		{
-			"name": "MYTHOS CREATURE",
-			"text": [
-				"Immune to Suppression and Critical Hits."
-			]
-		},
-	],
-	"weapons": [
-		{
-			"count": 2,
-			"name": "Claws",
-			"range": "C",
-			"ammo": 0,
-			"damage": {
-				"infantry1": "6/1",
-				"infantry2": "6/1",
-				"infantry3": "6/1",
-				"infantry4": "6/1",
-				"vehicle1": "2/\u{1F571}",
-				"vehicle2": "2/\u{1F571}",
-				"vehicle3": "2/5",
-				"vehicle4": "2/4",
-				"vehicle5": "2/4",
-				"vehicle6": "2/3",
-				"vehicle7": "2/3",
-				"aircraft1": "2/4",
-				"aircraft2": "2/4",
-				"aircraft3": "2/3"
-			}
-		},
-	]
-};
+var baseCard = {};
 
 function generateJSON() {
 	baseCard = {};
@@ -275,5 +200,14 @@ function generateCard() {
 		imgCtx.drawImage(modelImg, 0, 0);
 		ctx.drawImage(imgCanvas, 41, 44);
 	})
-
 };
+
+function exportJsonFile () {
+	generateJSON();
+	var fileToSave = new Blob([JSON.stringify(baseCard)], {
+		type: 'application/json',
+		name: baseCard.name
+	});
+	saveAs(fileToSave, baseCard.name);
+	console.log("Hopefully data was saved?");
+}
