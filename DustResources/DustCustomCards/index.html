@@ -190,6 +190,14 @@
 	<br />
 	<br />
 	<h2>Unit Weapons</h2>
+	<datalist id="weaponDirections">
+		<option value="N/A"></option>
+		<option value="Forward"></option>
+		<option value="Backward"></option>
+		<option value="Left"></option>
+		<option value="Right"></option>
+		<option value="Turret"></option>
+	</datalist>
 	<h3>Weapon 1</h3>
 	<label for="weapon1Enable">Enable Weapon Line:</label>
 	<input type="checkbox" name="Weapon-1-Enable" id="weapon1Enable" checked="true">
@@ -202,6 +210,8 @@
 	<input type="text" name="Weapon-1-Range" id="weapon1Range" style="width: 50px" value="C">
 	<label for="weapon1Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-1-Ammo" id="weapon1Ammo" style="width: 50px" value="0">
+	<label for="weapon1Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-1-Direction" id="weapon1Direction" list="weaponDirections" value="Turret">
 	<br />
 	<label for="weapon1I1">I1:</label>
 	<input type="text" name="Weapon-1-I1" id="weapon1I1" style="width: 50px" value="6/1">
@@ -247,6 +257,8 @@
 	<input type="text" name="Weapon-2-Range" id="weapon2Range" style="width: 50px">
 	<label for="weapon2Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-2-Ammo" id="weapon2Ammo" style="width: 50px">
+	<label for="weapon2Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-2-Direction" id="weapon2Direction" list="weaponDirections" value="N/A">
 	<br />
 	<label for="weapon2I1">I1:</label>
 	<input type="text" name="Weapon-2-I1" id="weapon2I1" style="width: 50px">
@@ -292,6 +304,8 @@
 	<input type="text" name="Weapon-3-Range" id="weapon3Range" style="width: 50px">
 	<label for="weapon3Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-3-Ammo" id="weapon3Ammo" style="width: 50px">
+	<label for="weapon3Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-3-Direction" id="weapon3Direction" list="weaponDirections" value="N/A">
 	<br />
 	<label for="weapon3I1">I1:</label>
 	<input type="text" name="Weapon-3-I1" id="weapon3I1" style="width: 50px">
@@ -337,6 +351,8 @@
 	<input type="text" name="Weapon-4-Range" id="weapon4Range" style="width: 50px">
 	<label for="weapon4Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-4-Ammo" id="weapon4Ammo" style="width: 50px">
+	<label for="weapon4Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-4-Direction" id="weapon4Direction" list="weaponDirections" value="N/A">
 	<br />
 	<label for="weapon4I1">I1:</label>
 	<input type="text" name="Weapon-4-I1" id="weapon4I1" style="width: 50px">
@@ -382,6 +398,8 @@
 	<input type="text" name="Weapon-5-Range" id="weapon5Range" style="width: 50px">
 	<label for="weapon5Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-5-Ammo" id="weapon5Ammo" style="width: 50px">
+	<label for="weapon5Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-5-Direction" id="weapon5Direction" list="weaponDirections" value="N/A">
 	<br />
 	<label for="weapon5I1">I1:</label>
 	<input type="text" name="Weapon-5-I1" id="weapon5I1" style="width: 50px">
@@ -427,6 +445,8 @@
 	<input type="text" name="Weapon-6-Range" id="weapon6Range" style="width: 50px">
 	<label for="weapon6Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-6-Ammo" id="weapon6Ammo" style="width: 50px">
+	<label for="weapon6Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-6-Direction" id="weapon6Direction" list="weaponDirections" value="N/A">
 	<br />
 	<label for="weapon6I1">I1:</label>
 	<input type="text" name="Weapon-6-I1" id="weapon6I1" style="width: 50px">
@@ -472,6 +492,8 @@
 	<input type="text" name="Weapon-7-Range" id="weapon7Range" style="width: 50px">
 	<label for="weapon7Ammo">Ammo:</label>
 	<input type="number" pattern="\d*" name="Weapon-7-Ammo" id="weapon7Ammo" style="width: 50px">
+	<label for="weapon7Direction">Weapon Direction:</label>
+	<input type="text" name="Weapon-7-Direction" id="weapon7Direction" list="weaponDirections" value="N/A">
 	<br />
 	<label for="weapon7I1">I1:</label>
 	<input type="text" name="Weapon-7-I1" id="weapon7I1" style="width: 50px">
@@ -508,7 +530,7 @@
 	<button id="generateCard" onclick="generateCard()">Generate Card!</button>
 	<br />
 	<br />
-	<!--<button id="saveCardData" onclick="exportJsonFile()">Save Card Data!</button>-->
+	<button id="saveCardData" onclick="exportJsonFile()">Save Card Data!</button>
 	<br />
 	<br />
 	<canvas id="cardCanvas" height=1000px width=1000px></canvas>

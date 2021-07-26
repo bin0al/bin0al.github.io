@@ -38,6 +38,7 @@ function generateJSON() {
 			tempWeapon.name = document.getElementById("weapon"+k+"Name").value;
 			tempWeapon.range = document.getElementById("weapon"+k+"Range").value;
 			tempWeapon.ammo = document.getElementById("weapon"+k+"Ammo").value;
+			tempWeapon.direction = document.getElementById("weapon"+k+"Direction").value;
 			tempWeapon.damage = {};
 			tempWeapon.damage.infantry1 = document.getElementById("weapon"+k+"I1").value;
 			tempWeapon.damage.infantry2 = document.getElementById("weapon"+k+"I2").value;
