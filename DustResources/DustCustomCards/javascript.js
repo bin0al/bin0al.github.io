@@ -68,16 +68,6 @@ function generateJSON() {
 	console.log(baseCard);
 };
 
-function updateWeaponLines () {
-	var weaponLineCount = document.getElementById("weaponLineCount").value;
-	var weaponLineContainer = document.getElementById("weaponLineContainer").value;
-	while (weaponLineContainer.hasChildNodes()) {
-		weaponLineContainer.removeChild(weaponLineContainer.lastChild)
-	}
-	for (i=0;i<weaponLineCount;i++) {
-	}
-}
-
 function imageSuccess() {
 	alert("Image Loaded!");
 }
