@@ -57,15 +57,30 @@ function generateJSON() {
 			baseCard.weapons.push(tempWeapon);
 		}
 	};
-	var cardAsString = JSON.stringify(baseCard);
-	cardAsString = cardAsString.replaceAll('[K]', 'ſ');
-	cardAsString = cardAsString.replaceAll('[B]', 'ƀ');
-	cardAsString = cardAsString.replaceAll('[F]', 'Ɓ');
-	cardAsString = cardAsString.replaceAll('[C]', 'Ƃ');
-	cardAsString = cardAsString.replaceAll('[S]', 'ƃ');
-	baseCard = JSON.parse(cardAsString);
-	console.log(cardAsString);
-	console.log(baseCard);
+};
+
+function importJSON () {
+
+};
+
+function replaceToSymbol(inString) {
+	let workingString = inString;
+	workingString = workingString.replaceAll('[K]', 'ſ');
+	workingString = workingString.replaceAll('[B]', 'ƀ');
+	workingString = workingString.replaceAll('[F]', 'Ɓ');
+	workingString = workingString.replaceAll('[C]', 'Ƃ');
+	workingString = workingString.replaceAll('[S]', 'ƃ');
+	return workingString;
+};
+
+function replaceToChar(inString) {
+	let workingString = inString;
+	workingString = workingString.replaceAll('ſ', '[K]');
+	workingString = workingString.replaceAll('ƀ', '[B]');
+	workingString = workingString.replaceAll('Ɓ', '[F]');
+	workingString = workingString.replaceAll('Ƃ', '[C]');
+	workingString = workingString.replaceAll('ƃ', '[S]');
+	return workingString;
 };
 
 function imageSuccess() {
@@ -93,6 +108,7 @@ ctx.fillStyle = "black";
 ctx.fillRect(0, 0, 1000, 1000)
 function generateCard() {
 	generateJSON();
+	baseCard = JSON.parse(replaceToSymbol(JSON.stringify(baseCard)));
 	switch (baseCard.armor.type) {
 		case 'Infantry':
 			var combinedBase = document.getElementById("combinedBaseInfantry");
@@ -191,6 +207,7 @@ function generateCard() {
 		imgCtx.drawImage(modelImg, 0, 0);
 		ctx.drawImage(imgCanvas, 41, 44);
 	})
+	baseCard = JSON.parse(replaceToChar(JSON.stringify(baseCard)));
 };
 
 function exportJsonFile () {
