@@ -179,6 +179,25 @@ function generateCard() {
 			ctx.fillStyle = "black";
 		}
 		lineCount++;
+		switch (element.direction) {
+			case "N/A":
+				break;
+			case "Forward":
+				ctx.drawImage(document.getElementById("ArcFront"), 905, weaponHeight-26);
+				break;
+			case "Left":
+				ctx.drawImage(document.getElementById("ArcLeft"), 905, weaponHeight-26);
+				break;
+			case "Right":
+				ctx.drawImage(document.getElementById("ArcRight"), 905, weaponHeight-26);
+				break;
+			case "Rear":
+				ctx.drawImage(document.getElementById("ArcRear"), 905, weaponHeight-26);
+				break;
+			case "Turret":
+				ctx.drawImage(document.getElementById("ArcTurret"), 905, weaponHeight-26);
+				break;
+		}
 		ctx.textAlign = "left";
 		ctx.font = "bold 20px HelveticaCustom";
 		ctx.fillText(element.count + "x " + element.name, 90, weaponHeight);
@@ -199,14 +218,14 @@ function generateCard() {
 		ctx.fillText(element.damage.aircraft2, 845, weaponHeight);
 		ctx.fillText(element.damage.aircraft3, 884, weaponHeight);
 		weaponHeight = weaponHeight + weaponInc;
-		const imgCanvas = document.getElementById("imageCanvas");
-		const imgCtx = imgCanvas.getContext("2d");
-		var imageMask = document.getElementById("imageMask");
-		imgCtx.drawImage(imageMask, 0, 0);
-		imgCtx.globalCompositeOperation = 'source-in';
-		imgCtx.drawImage(modelImg, 0, 0);
-		ctx.drawImage(imgCanvas, 41, 44);
 	})
+	const imgCanvas = document.getElementById("imageCanvas");
+	const imgCtx = imgCanvas.getContext("2d");
+	var imageMask = document.getElementById("imageMask");
+	imgCtx.drawImage(imageMask, 0, 0);
+	imgCtx.globalCompositeOperation = 'source-in';
+	imgCtx.drawImage(modelImg, 0, 0);
+	ctx.drawImage(imgCanvas, 41, 44);
 	baseCard = JSON.parse(replaceToChar(JSON.stringify(baseCard)));
 };
 
