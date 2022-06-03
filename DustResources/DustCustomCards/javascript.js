@@ -59,9 +59,98 @@ function generateJSON() {
 	};
 };
 
-function importJSON () {
-
+function populateFields (jsonData) {
+	document.getElementById("accentColor").value = jsonData.accentColor;
+	document.getElementById("unitName").value = jsonData.name;
+	document.getElementById("unitSubname").value = jsonData.subname;
+	document.getElementById("unitMove").value = jsonData.stats.move;
+	document.getElementById("unitMarch").value = jsonData.stats.march;
+	document.getElementById("unitAP").value = jsonData.stats.ap;
+	document.getElementById("unitHP").value = jsonData.stats.hp;
+	document.getElementById("unitBloc").value = jsonData.bloc;
+	document.getElementById("unitFaction").value = jsonData.faction;
+	document.getElementById("unitArmorType").value = jsonData.armor.type;
+	document.getElementById("unitArmorClass").value = jsonData.armor.class;
+	for (i=1;i<7;i++) {
+		if (jsonData.abilities[i-1]) {
+			document.getElementById("ability"+i+"Name").value = jsonData.abilities[i-1].name;
+			document.getElementById("ability"+i+"Enable").checked = true;
+			for (j=1;j<5;j++) {
+				if (jsonData.abilities[i-1].text[j-1]) {
+					document.getElementById("ability"+i+"Line"+j).value = jsonData.abilities[i-1].text[j-1];
+				} else {
+					document.getElementById("ability"+i+"Line"+j).value = "";
+				}
+			};
+		} else {
+			document.getElementById("ability"+i+"Name").value = "";
+			document.getElementById("ability"+i+"Enable").checked = false;
+			document.getElementById("ability"+i+"Line"+1).value = "";
+			document.getElementById("ability"+i+"Line"+2).value = "";
+			document.getElementById("ability"+i+"Line"+3).value = "";
+			document.getElementById("ability"+i+"Line"+4).value = "";
+		};
+	};
+	for (k=1;k<8;k++) {
+		if (jsonData.weapons[k-1]) {
+			document.getElementById("weapon"+k+"Enable").checked = true;
+			document.getElementById("weapon"+k+"Count").value = jsonData.weapons[k-1].count;
+			document.getElementById("weapon"+k+"Name").value = jsonData.weapons[k-1].name;
+			document.getElementById("weapon"+k+"Range").value = jsonData.weapons[k-1].range;
+			document.getElementById("weapon"+k+"Ammo").value = jsonData.weapons[k-1].ammo;
+			document.getElementById("weapon"+k+"Direction").value = jsonData.weapons[k-1].direction;
+			document.getElementById("weapon"+k+"I1").value = jsonData.weapons[k-1].damage.infantry1;
+			document.getElementById("weapon"+k+"I2").value = jsonData.weapons[k-1].damage.infantry2;
+			document.getElementById("weapon"+k+"I3").value = jsonData.weapons[k-1].damage.infantry3;
+			document.getElementById("weapon"+k+"I4").value = jsonData.weapons[k-1].damage.infantry4;
+			document.getElementById("weapon"+k+"V1").value = jsonData.weapons[k-1].damage.vehicle1;
+			document.getElementById("weapon"+k+"V2").value = jsonData.weapons[k-1].damage.vehicle2;
+			document.getElementById("weapon"+k+"V3").value = jsonData.weapons[k-1].damage.vehicle3;
+			document.getElementById("weapon"+k+"V4").value = jsonData.weapons[k-1].damage.vehicle4;
+			document.getElementById("weapon"+k+"V5").value = jsonData.weapons[k-1].damage.vehicle5;
+			document.getElementById("weapon"+k+"V6").value = jsonData.weapons[k-1].damage.vehicle6;
+			document.getElementById("weapon"+k+"V7").value = jsonData.weapons[k-1].damage.vehicle7;
+			document.getElementById("weapon"+k+"A1").value = jsonData.weapons[k-1].damage.aircraft1;
+			document.getElementById("weapon"+k+"A2").value = jsonData.weapons[k-1].damage.aircraft2;
+			document.getElementById("weapon"+k+"A3").value = jsonData.weapons[k-1].damage.aircraft3;
+		} else {
+			document.getElementById("weapon"+k+"Enable").checked = false;
+			document.getElementById("weapon"+k+"Count").value = "";
+			document.getElementById("weapon"+k+"Name").value = "";
+			document.getElementById("weapon"+k+"Range").value = "";
+			document.getElementById("weapon"+k+"Ammo").value = "";
+			document.getElementById("weapon"+k+"Direction").value = "";
+			document.getElementById("weapon"+k+"I1").value = "";
+			document.getElementById("weapon"+k+"I2").value = "";
+			document.getElementById("weapon"+k+"I3").value = "";
+			document.getElementById("weapon"+k+"I4").value = "";
+			document.getElementById("weapon"+k+"V1").value = "";
+			document.getElementById("weapon"+k+"V2").value = "";
+			document.getElementById("weapon"+k+"V3").value = "";
+			document.getElementById("weapon"+k+"V4").value = "";
+			document.getElementById("weapon"+k+"V5").value = "";
+			document.getElementById("weapon"+k+"V6").value = "";
+			document.getElementById("weapon"+k+"V7").value = "";
+			document.getElementById("weapon"+k+"A1").value = "";
+			document.getElementById("weapon"+k+"A2").value = "";
+			document.getElementById("weapon"+k+"A3").value = "";
+		};
+	};
 };
+
+function importJSON() {
+	var files = document.getElementById('jsonFile').files;
+	console.log(files);
+	if (files.length <= 0) {return false;}
+	var fr = new FileReader();
+	fr.onload = function(e) {
+		console.log(e);
+		var result = JSON.parse(e.target.result);
+		console.log(result);
+		populateFields(result);
+	}
+	fr.readAsText(files.item(0));
+}
 
 function replaceToSymbol(inString) {
 	let workingString = inString;
