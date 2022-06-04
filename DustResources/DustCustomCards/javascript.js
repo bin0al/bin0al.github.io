@@ -159,6 +159,7 @@ function replaceToSymbol(inString) {
 	workingString = workingString.replaceAll('[F]', 'Ɓ');
 	workingString = workingString.replaceAll('[C]', 'Ƃ');
 	workingString = workingString.replaceAll('[S]', 'ƃ');
+	workingString = workingString.replaceAll('[D]', 'Ƅ');
 	return workingString;
 };
 
@@ -169,6 +170,7 @@ function replaceToChar(inString) {
 	workingString = workingString.replaceAll('Ɓ', '[F]');
 	workingString = workingString.replaceAll('Ƃ', '[C]');
 	workingString = workingString.replaceAll('ƃ', '[S]');
+	workingString = workingString.replaceAll('Ƅ', '[D]');
 	return workingString;
 };
 
