@@ -282,7 +282,7 @@ function generateCard() {
 			case "Right":
 				ctx.drawImage(document.getElementById("ArcRight"), 905, weaponHeight-26);
 				break;
-			case "Rear":
+			case "Backward":
 				ctx.drawImage(document.getElementById("ArcRear"), 905, weaponHeight-26);
 				break;
 			case "Turret":
