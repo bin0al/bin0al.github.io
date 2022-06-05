@@ -274,24 +274,31 @@ function generateCard() {
 			case "N/A":
 				break;
 			case "Forward":
-				ctx.drawImage(document.getElementById("ArcFront"), 905, weaponHeight-26);
+				ctx.drawImage(document.getElementById("ArcFront"), 925, weaponHeight-26);
 				break;
 			case "Left":
-				ctx.drawImage(document.getElementById("ArcLeft"), 905, weaponHeight-26);
+				ctx.drawImage(document.getElementById("ArcLeft"), 925, weaponHeight-26);
 				break;
 			case "Right":
-				ctx.drawImage(document.getElementById("ArcRight"), 905, weaponHeight-26);
+				ctx.drawImage(document.getElementById("ArcRight"), 925, weaponHeight-26);
 				break;
 			case "Backward":
-				ctx.drawImage(document.getElementById("ArcRear"), 905, weaponHeight-26);
+				ctx.drawImage(document.getElementById("ArcRear"), 925, weaponHeight-26);
 				break;
 			case "Turret":
-				ctx.drawImage(document.getElementById("ArcTurret"), 905, weaponHeight-26);
+				ctx.drawImage(document.getElementById("ArcTurret"), 925, weaponHeight-26);
 				break;
+		}
+		for (l = 0; l<element.ammo; l++) {
+			if (l%2) {
+				ctx.drawImage(document.getElementById("AmmoIcon"), 305 - (l*4), weaponHeight-7)
+			} else {
+				ctx.drawImage(document.getElementById("AmmoIcon"), 305 - (l*4), weaponHeight-22)
+			}
 		}
 		ctx.textAlign = "left";
 		ctx.font = "bold 20px HelveticaCustom";
-		ctx.fillText(element.count + "x " + element.name, 90, weaponHeight);
+		ctx.fillText(element.count + "x " + element.name, 30, weaponHeight);
 		ctx.textAlign = "center";
 		ctx.fillText(element.range, 336, weaponHeight);
 		ctx.fillText(element.damage.infantry1, 377, weaponHeight);
