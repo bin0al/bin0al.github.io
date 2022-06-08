@@ -1,5 +1,7 @@
 var baseCard = {};
 
+var emptyCard = {"accentColor":"#000000","name":"","subname":"","stats":{"move":"0","march":"0","ap":"0","hp":"0"},"bloc":"","faction":"","armor":{"type":"Infantry","class":"1"},"abilities":[],"weapons":[]};
+
 function generateJSON() {
 	baseCard = {};
 	baseCard.accentColor = document.getElementById("accentColor").value;
