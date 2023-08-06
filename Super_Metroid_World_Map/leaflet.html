@@ -247,7 +247,6 @@
 		}
 		L.control.layers(baseLayers,multiLayers,{collapsed:false}).addTo(map);
 
-		//Set up the functionality to grab coordinates on right click. For dev, comment out when done
 		var userInputLocations = [];
 		var lastUserLocation = null;
 
@@ -255,7 +254,8 @@
 			//userInputLocations.push(e.latlng);
 			//userInputLine(e.latlng);
 			//locationsToConsole(userInputLocations);
-			alert("[" + (e.latlng.lng - (e.latlng.lng % 256)) + "," + (e.latlng.lat - (e.latlng.lat % 256)) + "]");
+			alert("Room Grid Corner: [" + (e.latlng.lng - (e.latlng.lng % 256)) + "," + (e.latlng.lat - (e.latlng.lat % 256)) +
+			"]\nSpecific Location: [" + e.latlng.lng + "," + e.latlng.lat + "]");
 		}
 
 		function userInputLine(inCoords) {

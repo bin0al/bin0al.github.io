@@ -172,3 +172,5 @@ var energyTanks = {
   ]
   
 };
+
+console.log("Loaded energyTanks.js:\nCount: " + energyTanks.features.length);

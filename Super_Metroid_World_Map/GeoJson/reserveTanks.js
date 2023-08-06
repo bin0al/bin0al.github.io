@@ -52,3 +52,5 @@ var reserveTanks = {
   ]
   
 };
+
+console.log("Loaded reserveTanks.js:\nCount: " + reserveTanks.features.length);

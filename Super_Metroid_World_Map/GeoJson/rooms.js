@@ -4754,3 +4754,5 @@ var rooms = {
   ]
 
 };
+
+console.log("Loaded rooms.js:\nCount: " + rooms.features.length);

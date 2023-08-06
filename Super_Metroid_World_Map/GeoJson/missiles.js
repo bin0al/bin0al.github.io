@@ -11,18 +11,6 @@ var missiles = {
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [5960.5,-7544]
-    }},
-        
-//-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
-
-    {
-    "type": "Feature",
-    "properties": {
-      "item": "Missiles",
-    },
-    "geometry": {
-      "type": "Point",
       "coordinates": [8937,-1177.5]
     }},
         
@@ -544,6 +532,18 @@ var missiles = {
       
 //-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 
+{
+  "type": "Feature",
+  "properties": {
+    "item": "Missiles",
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [15799.5, -11129]
+  }},
+      
+//-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+
     {
     "type": "Feature",
     "properties": {
@@ -556,3 +556,5 @@ var missiles = {
   ]
   
 };
+
+console.log("Loaded missiles.js:\nCount: " + missiles.features.length);

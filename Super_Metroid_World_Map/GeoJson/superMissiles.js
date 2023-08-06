@@ -124,3 +124,5 @@ var superMissiles = {
   ]
   
 };
+
+console.log("Loaded superMissiles.js:\nCount: " + superMissiles.features.length);

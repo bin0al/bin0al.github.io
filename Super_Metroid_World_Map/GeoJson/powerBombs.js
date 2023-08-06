@@ -124,3 +124,5 @@ var powerBombs = {
   ]
   
 };
+
+console.log("Loaded powerBombs.js:\nCount: " + powerBombs.features.length);

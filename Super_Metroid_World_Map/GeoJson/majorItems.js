@@ -196,3 +196,5 @@ var majorItems = {
   ]
   
 };
+
+console.log("Loaded majorItems.js:\nCount: " + majorItems.features.length);
