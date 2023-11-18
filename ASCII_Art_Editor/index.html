@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <script src="colorDefs.js"></script>
+    <style id="style">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .ui-button {
+            margin: 5px;
+            outline: 3px outset black;
+            background-color: rgb(160,160,160);
+            width: fit-content();
+            height: fit-content();
+            text-align: center;
+            vertical-align: middle;
+            font-family:'Courier New', Courier, monospace;
+        }
+        .ui-button-pressed {
+            margin: 5px;
+            outline: 3px inset black;
+            background-color: rgb(96,96,96);
+            width: fit-content();
+            height: fit-content();
+            text-align: center;
+            vertical-align: middle;
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        .p-cell {
+            margin: 0;
+            outline: 1px solid black;
+            width: fit-content();
+            height: fit-content();
+            z-index: 2;
+        }
+
+        .p-cell-selected {
+            margin: 0;
+            outline: 1px solid rgb(255, 255, 255);
+            width: fit-content();
+            height: fit-content();
+            z-index: 3;
+        }
+
+        .a-cell {
+            margin: 0;
+            color: white;
+            width: fit-content();
+            height: fit-content();
+            text-align: center;
+            vertical-align: middle;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 0.5vw;
+        }
+
+        .toolbar-container {
+            display: grid;
+            flex-direction: row;
+            background-color: gray;
+            grid-template-columns: 20% 40% 10% 10% 20%;
+            width: 100%;
+            height: 10%;
+        }
+
+        .file-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+
+        .color-type-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            width: 100%;
+            height: 100%;
+            font-size: 2vw;
+        }
+
+        .palette-container {
+            display: grid;
+            grid-template-columns: repeat(40, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toolbarContainer" class="toolbar-container">
+        <div id="fileContainer" class="file-container">
+
+        </div>
+        <div id="paletteContainer" class="palette-container">
+
+        </div>
+        <div id="colorTypeContainer" class="color-type-container">
+            <div id="fg" class="ui-button" onclick="colorTypeClicked('fg')">FG</div>
+            <div id="bg" class="ui-button-pressed" onclick="colorTypeClicked('bg')">BG</div>
+        </div>
+    </div>
+
+    <div id="artContainer" style="background-color: black; width: 100%; height: 90%;">
+        <div id="artCellGrid"></div>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+
+</html>
