@@ -49,14 +49,14 @@ function intToRgb(i) {
 }
 const AnsiToStyle = {};
 for (let i=0;i<216;i++) {
-    AnsiToStyle[`\\u001b[38:5:${i+16}m`] = `color: ${intToRgb(i)}`;
-    AnsiToStyle[`\\u001b[48:5:${i+16}m`] = `background-color: ${intToRgb(i)}`;
+    AnsiToStyle[`\\u001b[38;5;${i+16}m`] = `color: ${intToRgb(i)}`;
+    AnsiToStyle[`\\u001b[48;5;${i+16}m`] = `background-color: ${intToRgb(i)}`;
 }
 for (i=0;i<24;i++) {
     const colorNum = Math.floor(i*(255/23));
     const colorStr = `rgb(${colorNum},${colorNum},${colorNum})`;
-    AnsiToStyle[`\\u001b[38:5:${i+232}m`] = `color: ${colorStr}`;
-    AnsiToStyle[`\\u001b[48:5:${i+232}m`] = `background-color: ${colorStr}`;
+    AnsiToStyle[`\\u001b[38;5;${i+232}m`] = `color: ${colorStr}`;
+    AnsiToStyle[`\\u001b[48;5;${i+232}m`] = `background-color: ${colorStr}`;
 }
 const StyleToAnsi = {};
 for (code in AnsiToStyle) {
