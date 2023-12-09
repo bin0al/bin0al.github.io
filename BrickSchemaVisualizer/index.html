@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="https://frogcat.github.io/ttl2jsonld/ttl2jsonld.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.27.0/cytoscape.min.js"></script>
+    <script src="javascript.js"></script>
+    <style>
+        #cyContainer {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body height="100%" width="100%">
+    <div id="loadContainer" width="100%" height="100%">
+        <a href="https://brickschema.org/resources/#reference-brick-models">Brick Schema Reference Models</a></br>
+        <textarea id="inText" width="100%" height="70%"></textarea></br>
+        <label for="saveJson">Save JSON? </label><input type="checkbox" id="saveJson"></input></br>
+        <button onclick="loadData();">Load Brick Data</button>
+    </div>
+    <div id="cyContainer" width="100%" height="100%"></div>
+    <a id="downloadAnchorElem" style="display:none"></a>
+</body>
+
+</html>
